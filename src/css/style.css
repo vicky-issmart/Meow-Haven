@@ -5,11 +5,6 @@ Try changing the color from blue to red in the
 primary color variable below.
 */
 
-:root {
-	--color-primary: blue;
-	--color-secondary: #c00;
-}
-
 /*
 CSS doesn't allow variables to be used in media
 queries just yet, but you can use these values
@@ -22,14 +17,168 @@ to help you out.
 	--size-xl: 1200px;
 */
 
-h1 {
-	color: var(--color-primary);
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* This uses the same value as --size-xs. */
-@media screen and (width >= 320px) {
-	.content-container {
-		margin: 0 auto;
-		max-width: 768px;
+html,
+body {
+	font-family: 'Arial Rounded MT Bold', sans-serif;
+	font-size: 16px;
+	background-color: #ffeef3;
+	color: #3e2a23;
+	height: 100%;
+}
+
+button {
+	font: inherit;
+	border: none;
+	border-radius: 12px;
+	padding: 0.75rem 1.5rem;
+	background-color: #f9b6c4;
+	color: white;
+	cursor: pointer;
+	box-shadow: 0 4px #d194a3;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #f387a0;
+}
+
+.hidden {
+	display: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ========== Layout ========== */
+.screen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+	min-height: 100vh;
+	text-align: center;
+}
+
+.container {
+	width: 100%;
+	max-width: 480px;
+	margin: 0 auto;
+}
+
+/* ========== Typography ========== */
+.game-title {
+	font-size: 2.5rem;
+	color: #7b4a36;
+	margin-bottom: 1rem;
+}
+
+.subtitle,
+.section-title {
+	font-size: 1.2rem;
+	margin-bottom: 1.5rem;
+	color: #5a3c2e;
+}
+
+.instruction-title {
+	font-size: 1.1rem;
+	margin-top: 1rem;
+	margin-bottom: 0.25rem;
+	color: #7b4a36;
+}
+
+.instructions p {
+	font-size: 0.95rem;
+	line-height: 1.5;
+	margin-bottom: 1rem;
+}
+
+/* ========== Main Game Area ========== */
+.game-area {
+	width: 100%;
+	height: 250px;
+	background-color: #fff6f8;
+	border: 2px solid #f4c2c7;
+	border-radius: 16px;
+	margin-bottom: 1rem;
+}
+
+.furniture-menu {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+	gap: 0.5rem;
+}
+
+/* ========== Tablet View (768px and up) ========== */
+@media (min-width: 768px) {
+	.container {
+		max-width: 700px;
+	}
+
+	.game-title {
+		font-size: 3rem;
+	}
+
+	.subtitle,
+	.section-title {
+		font-size: 1.4rem;
+	}
+
+	.instruction-title {
+		font-size: 1.25rem;
+	}
+
+	.instructions p {
+		font-size: 1rem;
+	}
+
+	.game-area {
+		height: 320px;
+	}
+}
+
+/* ========== Desktop View (1200px and up) ========== */
+@media (min-width: 1200px) {
+	.container {
+		max-width: 960px;
+	}
+
+	.game-title {
+		font-size: 3.5rem;
+	}
+
+	.subtitle,
+	.section-title {
+		font-size: 1.6rem;
+	}
+
+	.instruction-title {
+		font-size: 1.4rem;
+	}
+
+	.instructions p {
+		font-size: 1.1rem;
+	}
+
+	.game-area {
+		height: 400px;
+	}
+
+	.furniture-menu {
+		grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 	}
 }
