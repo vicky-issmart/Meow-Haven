@@ -6,19 +6,61 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Update your description here" />
-	<title>Update your title here</title>
-	<!--
-		This is where you should link your CSS file.
-	-->
+	<title>Meow Haven</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<main class="content-container">
-		<h1>Welcome to your final project!</h1>
+	<header class="app-header" role="banner">
+		<h1 class="visually-hidden">Meow Haven Game</h1>
+	</header>
+
+	<main>
+		<!-- Start Screen -->
+		<section class="screen start-screen" aria-label="Start screen">
+			<div class="container">
+				<h2 class="game-title">Meow Haven</h2>
+				<p class="subtitle">A Cozy Place for Furry Friends</p>
+				<button class="btn btn-play" data-target="howto" aria-label="Start the game">Play</button>
+			</div>
+		</section>
+
+		<!-- How to Play Screen -->
+		<section class="screen howto-screen hidden" aria-label="How to play">
+			<div class="container">
+				<h2 class="section-title">Welcome to Meow Haven 🐾</h2>
+				<article class="instructions">
+					<div class="instruction-block">
+						<h3 class="instruction-title">🎨 Pick & Paint</h3>
+						<p>Click furniture to change its color. Make it match your vibe!</p>
+					</div>
+					<div class="instruction-block">
+						<h3 class="instruction-title">🐱 Drag the Cat</h3>
+						<p>Move your cat around the room. Drop it near toys or food to see cute actions!</p>
+					</div>
+				</article>
+				<button class="btn btn-play" data-target="main" aria-label="Continue to game">Play</button>
+			</div>
+		</section>
+
+		<!-- Main Game Screen -->
+		<section class="screen main-screen hidden" aria-label="Main game area">
+			<div class="container">
+				<div class="game-area" role="region" aria-label="Cat room layout">
+					<!-- Room rendering area -->
+				</div>
+				<nav class="furniture-menu" aria-label="Furniture selection menu">
+					<!-- Furniture buttons -->
+				</nav>
+			</div>
+		</section>
 	</main>
-	<!--
-		This is where you should link your JS file.
-	-->
+
+	<footer class="app-footer" role="contentinfo">
+		<!-- Optional: footer content -->
+	</footer>
+
+	<script src="scripts.js"></script>
 </body>
 
 </html>
