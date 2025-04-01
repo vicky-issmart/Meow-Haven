@@ -11,58 +11,54 @@
 </head>
 
 <body>
-	<header class="app-header" role="banner">
-		<h1 class="visually-hidden">Meow Haven Game</h1>
-	</header>
-
 	<main>
-		<!-- Start Screen -->
-		<section class="screen start-screen" aria-label="Start screen">
+		<!-- Start Page -->
+		<section class="start-page">
 			<div class="container">
-				<h2 class="game-title">Meow Haven</h2>
-				<p class="subtitle">A Cozy Place for Furry Friends</p>
-				<button class="btn-play" data-target="howto" aria-label="Start the game">Play</button>
+				<h1 class="game-title">Meow Haven</h1>
+				<h2 class="game-subtitle">A Cozy Place for Furry Friends</h2>
+				<button class="button-start">
+					<img src="images/button-play-pink1.png" alt="Start" />
+				</button>
 			</div>
 		</section>
 
-		<section class="instructions-container">
+		<!-- Instruction Page -->
+		<section class="instruction-page hidden">
 			<div class="instructions-card">
-				<!-- Instructions Content -->
-				<h1>Welcome to Meow Haven 🐾</h1>
-				<p>Build a cozy little room for your kitty! Here's how to start:</p>
-				
+				<h1 class="instruction-title">Welcome to Meow Haven 🐾</h1>
+
 				<div class="instruction">
-					<img src="paint-icon.png" alt="Paint Icon" class="icon">
-					<p><strong>Pick & Paint</strong><br>Click on furniture to change its color. Make it match your vibe!</p>
+					<p>Build a cozy little room for your kitty!</p>
+					<p>Here's how to start:</p>
 				</div>
-		
+
 				<div class="instruction">
-					<img src="cat-icon.png" alt="Cat Icon" class="icon">
-					<p><strong>Drag the Cat</strong><br>Move your cat around the room. Drop it near toys or food to see it do cute things!</p>
+					<h2 class="instruction-subtitle">🎨 Pick & Paint</h2>
+					<p>Click on furniture to change its color.</p>
+					<p>Make it match your vibe!</p>
 				</div>
-		
-				<div class="play-button"></div>
+
+				<div class="instruction">
+					<h2 class="instruction-subtitle">🐱 Drag the Cat</h2>
+					<p>Move your cat around the room.</p>
+					<p>Drop it near toys or food to see it do cute things!</p>
+				</div>
+
+				<button class="button-play">
+					<img src="images/button-play.png" alt="Play" />
+				</button>
+
 			</div>
 		</section>
 
-		<!-- Main Game Screen -->
-		<section class="screen main-screen hidden" aria-label="Main game area">
-			<div class="container">
-				<div class="game-area" role="region" aria-label="Cat room layout">
-					<!-- Room rendering area -->
-				</div>
-				<nav class="furniture-menu" aria-label="Furniture selection menu">
-					<!-- Furniture buttons -->
-				</nav>
-			</div>
+		<!-- Game Page -->
+		<section class="game-page hidden">
+
 		</section>
 	</main>
 
-	<footer class="app-footer" role="contentinfo">
-		<!-- Optional: footer content -->
-	</footer>
-
-	<script src="scripts.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 
 </html>
