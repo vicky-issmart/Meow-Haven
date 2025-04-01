@@ -21,25 +21,27 @@
 			<div class="container">
 				<h2 class="game-title">Meow Haven</h2>
 				<p class="subtitle">A Cozy Place for Furry Friends</p>
-				<button class="btn btn-play" data-target="howto" aria-label="Start the game">Play</button>
+				<button class="btn-play" data-target="howto" aria-label="Start the game">Play</button>
 			</div>
 		</section>
 
-		<!-- How to Play Screen -->
-		<section class="screen howto-screen hidden" aria-label="How to play">
-			<div class="container">
-				<h2 class="section-title">Welcome to Meow Haven 🐾</h2>
-				<article class="instructions">
-					<div class="instruction-block">
-						<h3 class="instruction-title">🎨 Pick & Paint</h3>
-						<p>Click furniture to change its color. Make it match your vibe!</p>
-					</div>
-					<div class="instruction-block">
-						<h3 class="instruction-title">🐱 Drag the Cat</h3>
-						<p>Move your cat around the room. Drop it near toys or food to see cute actions!</p>
-					</div>
-				</article>
-				<button class="btn btn-play" data-target="main" aria-label="Continue to game">Play</button>
+		<section class="instructions-container">
+			<div class="instructions-card">
+				<!-- Instructions Content -->
+				<h1>Welcome to Meow Haven 🐾</h1>
+				<p>Build a cozy little room for your kitty! Here's how to start:</p>
+				
+				<div class="instruction">
+					<img src="paint-icon.png" alt="Paint Icon" class="icon">
+					<p><strong>Pick & Paint</strong><br>Click on furniture to change its color. Make it match your vibe!</p>
+				</div>
+		
+				<div class="instruction">
+					<img src="cat-icon.png" alt="Cat Icon" class="icon">
+					<p><strong>Drag the Cat</strong><br>Move your cat around the room. Drop it near toys or food to see it do cute things!</p>
+				</div>
+		
+				<div class="play-button"></div>
 			</div>
 		</section>
 

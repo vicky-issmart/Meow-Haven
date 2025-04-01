@@ -21,6 +21,7 @@ to help you out.
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	image-rendering: pixelated;
 }
 
 html,
@@ -32,7 +33,7 @@ body {
 	height: 100%;
 }
 
-button {
+.btn-play {
 	font: inherit;
 	border: none;
 	border-radius: 12px;
@@ -107,6 +108,58 @@ button:hover {
 	margin-bottom: 1rem;
 }
 
+.instructions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Instructions card using the image as the background (frame) */
+.instructions-card {
+	background-image: url('../images/instructions_pad_vertical.png'); /* Set your image path here */
+	background-size: contain; /* Ensures the whole image fits inside the card */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 93.75vw;  /* Default width for small screens */
+    max-width: 530px;  /* Maximum width for large screens */
+    position: relative;
+    color: #1E1E1E;
+    height: calc(93.75vw * 1.34); /* Sets the height to match the 74.65% aspect ratio */
+	padding: 50px 40px;
+}
+
+/* Styling the title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Instruction styles */
+.instruction {
+    margin-bottom: 20px;
+}
+
+.instruction img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.play-button {
+    background-image: url('../images/button-play-blue1.png');
+	background-size: contain; 
+	width: 25vw;
+	height: calc(25vw * 0.32); 
+    cursor: pointer;
+}
+
+.play-button:hover {
+    background-color: #5fb3e6;
+}
+
 /* ========== Main Game Area ========== */
 .game-area {
 	width: 100%;
@@ -138,6 +191,10 @@ button:hover {
 		font-size: 1.4rem;
 	}
 
+	.instructions-card {
+        width: 95%;  /* Adjust for tablet or medium screens */
+    }
+
 	.instruction-title {
 		font-size: 1.25rem;
 	}
@@ -166,6 +223,10 @@ button:hover {
 		font-size: 1.6rem;
 	}
 
+	.instructions-card {
+        width: 95%;  /* Adjust for tablet or medium screens */
+    }
+
 	.instruction-title {
 		font-size: 1.4rem;
 	}
@@ -181,4 +242,5 @@ button:hover {
 	.furniture-menu {
 		grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 	}
+	
 }
