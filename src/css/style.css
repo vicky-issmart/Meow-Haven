@@ -20,17 +20,17 @@ to help you out.
 /* ========== general setting ========== */
 @font-face {
 	font-family: 'GingerCat';
-	src: url('../fonts/GingerCat.woff format("woff")');
+	src: url('../fonts/GingerCat.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'CalliCat';
-	src: url('../fonts/CalliCat.woff format("woff")');
+	src: url('../fonts/CalliCat.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'DKBorrowdale';
-	src: url('../fonts/DK\ Borrowdale.woff2 format("woff2")');
+	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
 }
 
 * {
