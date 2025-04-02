@@ -148,6 +148,94 @@ section {
 }
 
 /* ========== Game Page ========== */
+.game-page {
+	background-image: url('../images/background-blue.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.room-container {
+	position: relative;
+	width: calc(100% - 40px);
+	max-width: 800px;
+	aspect-ratio: 1 / 1;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.room-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.item-container {
+	width: calc(100% - 40px);
+	max-width: 800px;
+	margin-bottom: 20px;
+	aspect-ratio: 9 / 8;
+	background-image: url('../images/item-panel-horizontal.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.item-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+	justify-content: center;
+	margin-bottom: 16px;
+}
+
+.item-icon img {
+	width: 64px;
+	height: auto;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.item-icon img:hover {
+	transform: scale(1.05);
+}
+
+.pagination {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+}
+
+.btn-prev,
+.btn-next {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.btn-prev img,
+.btn-next img {
+	width: 25px;
+	height: auto;
+	transition: transform 0.2s ease;
+}
+
+.btn-prev img:hover,
+.btn-next img:hover {
+	transform: scale(1.1);
+}
+
 
 
 /* ========== Tablet View (768px and up) ========== */
