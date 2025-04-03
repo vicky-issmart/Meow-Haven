@@ -166,6 +166,10 @@ section {
 	aspect-ratio: 1 / 1;
 	margin-top: 10px;
 	overflow: hidden;
+	display: grid;
+	grid-template-columns: repeat(32, 1fr);
+	grid-template-rows: repeat(32, 1fr);
+	transform-origin: center;    /* make sure scaling happens from the center */
 }
 
 .room-background {
@@ -175,7 +179,210 @@ section {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	z-index: 1;
 }
+
+.corner-tree {
+	width: 70.23%;
+	background-image: url('../images/item/corner_cat_tree_1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 16 / span 3;
+	grid-row: 9 / span 6;
+	z-index: 2;
+}
+
+.cat-bed {
+	width: 87.4%;
+	background-image: url('../images/item/cat_bed_1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 17 / span 8;
+	grid-row: 14 / span 6;
+	z-index: 2;
+	margin-left: 7%;
+}
+
+.four-deck-tree {
+	background-image: url('../images/item/four_deck_tree_1.png');
+	width: 88.3%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 25 / span 6;
+	grid-row: 10 / span 11;
+	z-index: 3;
+	margin-left: 5%;
+}
+
+.three-deck-tree {
+	background-image: url('../images/item/three_deck_tree_1.png');
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 8 / span 7;
+	grid-row: 9 / span 10;
+	z-index: 3;
+	margin-top: 20%;
+	margin-left: 5%;
+}
+
+.round-tree {
+	background-image: url('../images/item/round_tree_1.png');
+	width: 85.3%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 3 / span 4;
+	grid-row: 16 / span 6;
+	z-index: 3;
+	margin-left: 15%;
+}
+
+.curtains-window {
+	background-image: url('../images/item/curtains_window_1.png');
+	width: 97%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 19 / span 6;
+	grid-row: 6 / span 9;
+	z-index: 2;
+	margin-left: 5%;
+}
+.shuttered-window {
+	background-image: url('../images/item/shuttered_window_1.png');
+	width: 80.34%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 10 / span 5;
+	grid-row: 6 / span 9;
+	z-index: 2;
+	margin-left: 15%;
+	margin-top: 15%;
+}
+
+.small-window {
+	background-image: url('../images/item/small_window_1.png');
+	width: 76.4%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 3 / span 5;
+	grid-row: 11 / span 6;
+	z-index: 2;
+	margin-left: 10%;
+}
+
+.table {
+	background-image: url('../images/item/table_1.png');
+	width: 78.14%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 9 / span 5;
+	grid-row: 19 / span 6;
+	z-index: 2;
+	margin-left: 10%;
+	margin-top: 8.3%;
+}
+.large-plant {
+
+}
+.water-bowl {
+	background-image: url('../images/item/water_bowl_1.png');
+	width: 89.1%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 19 / span 3;
+	grid-row: 22 / span 3;
+	z-index: 2;
+	margin-top: 27%;
+}
+.food-bowl {
+	background-image: url('../images/item/food_bowl_1.png');
+	width: 90.8%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 15 / span 3;
+	grid-row: 23 / span 3;
+	z-index: 2;
+	margin-top: 13%;
+}
+.heart-picture {
+	background-image: url('../images/item/heart_picture_1.png');
+	width: 61.7%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 15 / span 3;
+	grid-row: 6 / span 2;
+	z-index: 2;
+	margin-left: 10%;
+}
+.cat-picture {
+	background-image: url('../images/item/cat_picture_1.png');
+	width: 53.4%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 17 / span 3;
+	grid-row: 6 / span 4;
+	z-index: 2;
+	margin-top: 10%;
+	margin-left: 16.6%;
+}
+.small-plant {
+	background-image: url('../images/item/small_plant_1.png');
+	width: 76.35%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 7 / span 2;
+	grid-row: 17 / span 3;
+	z-index: 2;
+	margin-top: 16.7%;
+}
+
+.ball-left {
+	background-image: url('../images/item/ball_1.png');
+	width: 63.35%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 16 / span 4;
+	grid-row: 13 / span 3;
+	z-index: 2;
+	margin-top: 3.4%;
+	margin-left: 17.5%;
+}
+
+.ball-right {
+	background-image: url('../images/item/ball_1.png');
+	width: 84.4%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 23 / span 3;
+	grid-row: 17 / span 3;
+	z-index: 2;
+	margin-top: 6.7%;
+	margin-left: 16.7%;
+}
+
+.cubic-bricks {
+	background-image: url('../images/item/cubic_bricks_1.png');
+	width: 76.35%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 24 / span 2;
+	grid-row: 18 / span 2;
+	z-index: 2;
+	margin-top: 30%;
+	margin-left: 35%;
+}
+.cat-toy {
+	background-image: url('../images/item/cat_toy_1.png');
+	width: 92.4%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	grid-column: 28 / span 3;
+	grid-row: 20 / span 3;
+	z-index: 2;
+	margin-top: 8%;
+	margin-left: 5%;
+}
+
 
 .item-container {
 	width: calc(100% - 40px);
