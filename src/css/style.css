@@ -110,79 +110,121 @@ section {
 /* Title & Subtitle & Start Button */
 .game-title {
 	font-family: 'Ginger Cat', sans-serif;
-	font-size: 36px;
+	font-size: clamp(36px, 10vw, 120px);
 }
 
 .game-subtitle {
 	font-family: 'Calli Cat', sans-serif;
-	font-size: 14px;
-	margin-top: 5px;
+	font-size: clamp(14px, 4vw, 40px);
+	margin-top: clamp(5px, 1vw, 12px);
 }
 
 .button-start {
 	background: none;
 	border: none;
 	padding: 0;
-	margin-top: 40px;
+	margin-top: clamp(24px, 5vw, 80px);
 }
 
 .button-start img {
-	width: 120px;
+	width: clamp(120px, 25vw, 260px);
 	height: auto;
 }
 
 /* Bottom Cats */
+:root {
+	--sprite-size: clamp(80px, 14vw, 150px);
+}
+
+.bottom-cats {
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-end;
+	padding-bottom: clamp(28px, 4vw, 56px);
+	width: 100%;
+	height: auto;
+	gap: clamp(8px, 2vw, 24px);
+	margin-top: 24px;
+}
+
+.cat-sprite {
+	width: var(--sprite-size);
+	aspect-ratio: 1 / 1;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: calc(var(--sprite-size) * var(--frame-count)) 100%;
+	image-rendering: pixelated;
+	align-self: flex-end;
+	z-index: 1;
+	transform: translateY(10px);
+}
+
+.dance-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Dance.png');
+	animation: dance-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.box-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Box.png');
+	animation: box-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.excited-cat {
+	--frame-count: 12;
+	background-image: url('../images/sprite/Excited.png');
+	animation: excited-animation 1.4s steps(var(--frame-count)) infinite;
+}
+
+.sleep-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Sleep.png');
+	animation: sleep-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.idle-cat {
+	--frame-count: 10;
+	background-image: url('../images/sprite/Idle.png');
+	animation: idle-animation 1.2s steps(var(--frame-count)) infinite;
+}
+
 .floor {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 32px;
+	height: clamp(28px, 4vw, 56px);
 	background-image: url('../images/floor.png');
 	background-repeat: repeat-x;
 	background-size: auto 100%;
-	image-rendering: pixelated;
+	z-index: 0;
 }
 
-.cat-sprite {
-	position: absolute;
-	width: 80px;
-	height: 80px;
-	image-rendering: pixelated;
+.sleep-cat,
+.idle-cat {
+	display: none;
 }
 
-.dance-cat {
-	left: 5%;
-	bottom: 25px;
-	background-image: url('../images/sprite/Dance.png');
-	background-size: 320px 80px;
-	animation: dance-animation 0.8s steps(4) infinite;
-}
-
-.box-cat {
-	left: 40%;
-	bottom: 15px;
-	background-image: url('../images/sprite/Box.png');
-	background-size: 320px 80px;
-	animation: box-animation 0.8s steps(4) infinite;
-}
-
-.excited-cat {
-	right: 0%;
-	bottom: 25px;
-	background-image: url('../images/sprite/Excited.png');
-	background-size: 960px 80px;
-	animation: excited-animation 1.2s steps(12) infinite;
-}
-
-/* Animation keyframes */
+/* Animations */
 @keyframes dance-animation {
 	from {
 		background-position: 0 0;
 	}
 
 	to {
-		background-position: -320px 0;
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
+	}
+}
+
+@keyframes sleep-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
 	}
 }
 
@@ -192,7 +234,17 @@ section {
 	}
 
 	to {
-		background-position: -320px 0;
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
+	}
+}
+
+@keyframes idle-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 10) 0;
 	}
 }
 
@@ -202,7 +254,7 @@ section {
 	}
 
 	to {
-		background-position: -960px 0;
+		background-position: calc(-1 * var(--sprite-size) * 12) 0;
 	}
 }
 
@@ -228,95 +280,15 @@ section {
 	}
 
 	.game-title {
-		font-size: 90px;
-	}
-
-	.game-subtitle {
-		font-size: 28px;
+		margin-top: 100px;
 	}
 
 	.button-start {
 		margin-top: 80px;
 	}
 
-	.button-start img {
-		width: 220px;
-	}
-
-	.floor {
-		height: 64px;
-	}
-
-	.cat-sprite {
-		width: 144px;
-		height: 144px;
-		bottom: 55px;
-	}
-
-	.dance-cat {
-		left: 5%;
-		background-size: 576px 144px;
-		animation: dance-animation 1s steps(4) infinite;
-	}
-
 	.sleep-cat {
-		left: 25%;
-		background-image: url('../images/sprite/Sleep.png');
-		background-size: 576px 144px;
-		animation: sleep-animation 1s steps(4) infinite;
-	}
-
-	.box-cat {
-		left: 50%;
-		background-size: 576px 144px;
-		bottom: 35px;
-		animation: box-animation 1s steps(4) infinite;
-	}
-
-	.excited-cat {
-		right: 5%;
-		background-size: 1728px 144px;
-		animation: excited-animation 1.4s steps(12) infinite;
-	}
-
-	@keyframes dance-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -576px 0;
-		}
-	}
-
-	@keyframes sleep-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -576px 0;
-		}
-	}
-
-	@keyframes box-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -576px 0;
-		}
-	}
-
-	@keyframes excited-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -1728px 0;
-		}
+		display: block;
 	}
 }
 
@@ -341,113 +313,18 @@ section {
 	}
 
 	.game-title {
-		font-size: 120px;
+		margin-top: 150px;
 	}
 
 	.game-subtitle {
-		font-size: 40px;
-	}
-
-	.button-start {
-		margin-top: 80px;
-	}
-
-	.button-start img {
-		width: 260px;
-	}
-
-	.floor {
-		height: 64px;
-	}
-
-	.cat-sprite {
-		width: 176px;
-		height: 176px;
-		bottom: 60px;
-	}
-
-	.dance-cat {
-		left: 2%;
-		background-image: url('../images/sprite/Dance.png');
-		background-size: 704px 176px;
-		animation: dance-animation 1s steps(4) infinite;
-	}
-
-	.sleep-cat {
-		left: 20%;
-		background-size: 704px 176px;
-		animation: sleep-animation 1s steps(4) infinite;
-	}
-
-	.box-cat {
-		left: 40%;
-		background-size: 704px 176px;
-		animation: box-animation 1s steps(4) infinite;
+		margin-top: -10px;
 	}
 
 	.idle-cat {
-		right: 15%;
-		background-image: url('../images/sprite/Idle.png');
-		background-size: 1760px 176px;
-		animation: idle-animation 1.2s steps(10) infinite;
-	}
-
-	.excited-cat {
-		right: 2%;
-		background-size: 2112px 176px;
-		animation: excited-animation 1.4s steps(12) infinite;
-	}
-
-	@keyframes dance-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -704px 0;
-		}
-	}
-
-	@keyframes sleep-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -704px 0;
-		}
-	}
-
-	@keyframes box-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -704px 0;
-		}
-	}
-
-	@keyframes idle-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -1760px 0;
-		}
-	}
-
-	@keyframes excited-animation {
-		from {
-			background-position: 0 0;
-		}
-
-		to {
-			background-position: -2112px 0;
-		}
+		display: block;
 	}
 }
+
 
 /* ========== Instruction Page ========== */
 .instruction-page {
