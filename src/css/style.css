@@ -41,7 +41,7 @@ to help you out.
 }
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
 section {
@@ -52,6 +52,24 @@ section {
 	text-align: center;
 }
 
+/* Button Interaction Effects (Hover & Active) */
+[class^="button-"] {
+	cursor: pointer;
+}
+
+[class^="button-"] img {
+	transition: transform 0.2s ease;
+	image-rendering: pixelated;
+}
+
+[class^="button-"] img:hover {
+	transform: scale(1.1);
+}
+
+[class^="button-"] img:active {
+	transform: scale(0.95);
+}
+
 /* ========== Start Page ========== */
 .start-page {
 	background-image: url('../images/background-pink.png');
@@ -59,34 +77,254 @@ section {
 	background-size: cover;
 	background-position: center;
 	color: #4C3620;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
+/* Top Buttons */
+.button-help,
+.button-sound {
+	position: absolute;
+	top: 20px;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.button-help {
+	left: 20px;
+}
+
+.button-sound {
+	right: 20px;
+}
+
+.button-help img,
+.button-sound img {
+	width: 30px;
+	height: auto;
+}
+
+/* Title & Subtitle & Start Button */
 .game-title {
 	font-family: 'Ginger Cat', sans-serif;
-	font-size: 36px;
+	font-size: clamp(36px, 10vw, 120px);
 }
 
 .game-subtitle {
 	font-family: 'Calli Cat', sans-serif;
-	font-size: 14px;
+	font-size: clamp(14px, 4vw, 40px);
+	margin-top: clamp(5px, 1vw, 12px);
 }
 
 .button-start {
 	background: none;
 	border: none;
 	padding: 0;
-	cursor: pointer;
+	margin-top: clamp(24px, 5vw, 80px);
 }
 
 .button-start img {
-	width: 150px;
+	width: clamp(120px, 25vw, 260px);
 	height: auto;
-	transition: transform 0.2s ease;
 }
 
-.button-start img:hover {
-	transform: scale(1.05);
+/* Bottom Cats */
+:root {
+	--sprite-size: clamp(80px, 14vw, 150px);
 }
+
+.bottom-cats {
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-end;
+	padding-bottom: clamp(28px, 4vw, 56px);
+	width: 100%;
+	height: auto;
+	gap: clamp(8px, 2vw, 24px);
+	margin-top: 24px;
+}
+
+.cat-sprite {
+	width: var(--sprite-size);
+	aspect-ratio: 1 / 1;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: calc(var(--sprite-size) * var(--frame-count)) 100%;
+	image-rendering: pixelated;
+	align-self: flex-end;
+	z-index: 1;
+	transform: translateY(10px);
+}
+
+.dance-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Dance.png');
+	animation: dance-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.box-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Box.png');
+	animation: box-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.excited-cat {
+	--frame-count: 12;
+	background-image: url('../images/sprite/Excited.png');
+	animation: excited-animation 1.4s steps(var(--frame-count)) infinite;
+}
+
+.sleep-cat {
+	--frame-count: 4;
+	background-image: url('../images/sprite/Sleep.png');
+	animation: sleep-animation 1s steps(var(--frame-count)) infinite;
+}
+
+.idle-cat {
+	--frame-count: 10;
+	background-image: url('../images/sprite/Idle.png');
+	animation: idle-animation 1.2s steps(var(--frame-count)) infinite;
+}
+
+.floor {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: clamp(28px, 4vw, 56px);
+	background-image: url('../images/floor.png');
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	z-index: 0;
+}
+
+.sleep-cat,
+.idle-cat {
+	display: none;
+}
+
+/* Animations */
+@keyframes dance-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
+	}
+}
+
+@keyframes sleep-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
+	}
+}
+
+@keyframes box-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 4) 0;
+	}
+}
+
+@keyframes idle-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 10) 0;
+	}
+}
+
+@keyframes excited-animation {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: calc(-1 * var(--sprite-size) * 12) 0;
+	}
+}
+
+/* Media Queries - Start Page */
+@media (min-width: 768px) {
+
+	.button-help,
+	.button-sound {
+		top: 25px;
+	}
+
+	.button-help {
+		left: 25px;
+	}
+
+	.button-sound {
+		right: 25px;
+	}
+
+	.button-help img,
+	.button-sound img {
+		width: 35px;
+	}
+
+	.game-title {
+		margin-top: 100px;
+	}
+
+	.button-start {
+		margin-top: 80px;
+	}
+
+	.sleep-cat {
+		display: block;
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.button-help,
+	.button-sound {
+		top: 30px;
+	}
+
+	.button-help {
+		left: 30px;
+	}
+
+	.button-sound {
+		right: 30px;
+	}
+
+	.button-help img,
+	.button-sound img {
+		width: 40px;
+	}
+
+	.game-title {
+		margin-top: 150px;
+	}
+
+	.game-subtitle {
+		margin-top: -10px;
+	}
+
+	.idle-cat {
+		display: block;
+	}
+}
+
 
 /* ========== Instruction Page ========== */
 .instruction-page {
@@ -134,17 +372,32 @@ section {
 	background: none;
 	border: none;
 	padding: 0;
-	cursor: pointer;
 }
 
 .button-play img {
 	width: 85px;
 	height: auto;
-	transition: transform 0.2s ease;
 }
 
-.button-play img:hover {
-	transform: scale(1.05);
+/* Media Queries - Instruction Page */
+@media (min-width: 768px) {
+	.instruction-title {
+		font-size: 1.25rem;
+	}
+
+	.instruction p {
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.instruction-title {
+		font-size: 1.4rem;
+	}
+
+	.instruction p {
+		font-size: 1.1rem;
+	}
 }
 
 /* ========== Game Page ========== */
@@ -443,50 +696,4 @@ section {
 	transform: scale(1.1);
 }
 
-
-
-/* ========== Tablet View (768px and up) ========== */
-@media (min-width: 768px) {
-	.container {
-		max-width: 700px;
-	}
-
-	.game-title {
-		font-size: 3rem;
-	}
-
-	.game-subtitle {
-		font-size: 1.4rem;
-	}
-
-	.instruction-title {
-		font-size: 1.25rem;
-	}
-
-	.instruction p {
-		font-size: 1rem;
-	}
-}
-
-/* ========== Desktop View (1200px and up) ========== */
-@media (min-width: 1200px) {
-	.container {
-		max-width: 960px;
-	}
-
-	.game-title {
-		font-size: 3.5rem;
-	}
-
-	.game-subtitle {
-		font-size: 1.6rem;
-	}
-
-	.instruction-title {
-		font-size: 1.4rem;
-	}
-
-	.instruction p {
-		font-size: 1.1rem;
-	}
-}
+/* Media Queries - Game Page */
