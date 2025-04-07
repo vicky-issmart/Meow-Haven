@@ -55,6 +55,9 @@ section {
 /* Button Interaction Effects (Hover & Active) */
 [class^="button-"] {
 	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0
 }
 
 [class^="button-"] img {
@@ -88,9 +91,6 @@ section {
 .button-sound {
 	position: absolute;
 	top: 20px;
-	background: none;
-	border: none;
-	padding: 0;
 }
 
 .button-help {
@@ -120,9 +120,6 @@ section {
 }
 
 .button-start {
-	background: none;
-	border: none;
-	padding: 0;
 	margin-top: clamp(24px, 5vw, 80px);
 }
 
@@ -333,6 +330,12 @@ section {
 	background-size: cover;
 	background-position: center;
 	color: #4C3620;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6vh 0;
+	overflow: hidden;
 }
 
 .instructions-card {
@@ -340,65 +343,134 @@ section {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
-	text-align: center;
-	width: 93.75vw;
-	max-width: 530px;
-	position: relative;
-	height: calc(93.75vw * 1.34);
-	padding: 50px 40px;
+
+	width: 90vw;
+	max-width: 540px;
+	aspect-ratio: 1 / 1.34;
+
+	padding: 8vh 6vw 6vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+
+	container-type: inline-size;
+	container-name: instructions;
 }
 
-.instruction {
-	margin-bottom: 20px;
-}
-
-.instruction-title {
-	font-family: 'Calli Cat', sans-serif;
-	font-size: 18px;
-	margin-bottom: 20px;
-}
-
-.instruction-subtitle {
-	font-family: 'DK Borrowdale', sans-serif;
-	font-size: 18px;
-}
-
-.instruction p {
-	font-family: 'DK Borrowdale', sans-serif;
-	font-size: 14px;
-}
-
-.button-play {
-	background: none;
-	border: none;
-	padding: 0;
-}
-
-.button-play img {
-	width: 85px;
-	height: auto;
-}
-
-/* Media Queries - Instruction Page */
-@media (min-width: 768px) {
+/* Container Queries for Typography */
+@container instructions (max-width: 310px) {
 	.instruction-title {
 		font-size: 1.25rem;
 	}
 
+	.instruction-subtitle {
+		font-size: 1.1rem;
+	}
+
 	.instruction p {
-		font-size: 1rem;
+		font-size: 0.9rem;
+	}
+
+	.button-play img {
+		width: 85px;
 	}
 }
 
-@media (min-width: 1200px) {
+@container instructions (min-width: 311px) and (max-width: 400px) {
 	.instruction-title {
+		font-size: 1.3rem;
+	}
+
+	.instruction-subtitle {
+		font-size: 1.1rem;
+	}
+
+	.instruction p {
+		font-size: 0.9rem;
+	}
+
+	.button-play img {
+		width: 100px;
+	}
+}
+
+@container instructions (min-width: 401px) and (max-width: 499px) {
+	.instruction-title {
+		font-size: 1.7rem;
+	}
+
+	.instruction-subtitle {
 		font-size: 1.4rem;
 	}
 
 	.instruction p {
-		font-size: 1.1rem;
+		font-size: 1.2rem;
+	}
+
+	.button-play img {
+		width: 130px;
 	}
 }
+
+@container instructions (min-width: 500px) and (max-width: 539px) {
+	.instruction-title {
+		font-size: 1.9rem;
+	}
+
+	.instruction-subtitle {
+		font-size: 1.55rem;
+	}
+
+	.instruction p {
+		font-size: 1.3rem;
+	}
+
+	.button-play img {
+		width: 145px;
+	}
+}
+
+@container instructions (min-width: 540px) {
+	.instruction-title {
+		font-size: 2rem;
+	}
+
+	.instruction-subtitle {
+		font-size: 1.6rem;
+	}
+
+	.instruction p {
+		font-size: 1.35rem;
+	}
+
+	.button-play img {
+		width: 150px;
+	}
+}
+
+/* ========== Typography & Layout ========== */
+.instruction-title {
+	font-family: 'Calli Cat', sans-serif;
+	text-align: center;
+	margin-bottom: 0.9em;
+}
+
+.instruction-subtitle {
+	font-family: 'DK Borrowdale', sans-serif;
+	margin-bottom: 0.3em;
+}
+
+.instruction p {
+	font-family: 'DK Borrowdale', sans-serif;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.instruction {
+	margin-bottom: 1em;
+}
+
 
 /* ========== Game Page ========== */
 .game-page {
@@ -422,7 +494,8 @@ section {
 	display: grid;
 	grid-template-columns: repeat(32, 1fr);
 	grid-template-rows: repeat(32, 1fr);
-	transform-origin: center;    /* make sure scaling happens from the center */
+	transform-origin: center;
+	/* make sure scaling happens from the center */
 }
 
 .room-background {
@@ -500,6 +573,7 @@ section {
 	z-index: 2;
 	margin-left: 5%;
 }
+
 .shuttered-window {
 	background-image: url('../images/item/shuttered_window_1.png');
 	width: 80.34%;
@@ -534,9 +608,9 @@ section {
 	margin-left: 10%;
 	margin-top: 8.3%;
 }
-.large-plant {
 
-}
+.large-plant {}
+
 .water-bowl {
 	background-image: url('../images/item/water_bowl_1.png');
 	width: 89.1%;
@@ -547,6 +621,7 @@ section {
 	z-index: 2;
 	margin-top: 27%;
 }
+
 .food-bowl {
 	background-image: url('../images/item/food_bowl_1.png');
 	width: 90.8%;
@@ -557,6 +632,7 @@ section {
 	z-index: 2;
 	margin-top: 13%;
 }
+
 .heart-picture {
 	background-image: url('../images/item/heart_picture_1.png');
 	width: 61.7%;
@@ -567,6 +643,7 @@ section {
 	z-index: 2;
 	margin-left: 10%;
 }
+
 .cat-picture {
 	background-image: url('../images/item/cat_picture_1.png');
 	width: 53.4%;
@@ -578,6 +655,7 @@ section {
 	margin-top: 10%;
 	margin-left: 16.6%;
 }
+
 .small-plant {
 	background-image: url('../images/item/small_plant_1.png');
 	width: 76.35%;
@@ -624,6 +702,7 @@ section {
 	margin-top: 30%;
 	margin-left: 35%;
 }
+
 .cat-toy {
 	background-image: url('../images/item/cat_toy_1.png');
 	width: 92.4%;

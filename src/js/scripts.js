@@ -15,9 +15,9 @@ const gamePage = document.querySelector('.game-page');
 const startButton = document.querySelector('.button-start');
 const playButton = document.querySelector('.button-play');
 const helpButton = document.querySelector('.button-help');
-const soundButton = document.querySelector('.button-sound');
-const soundIcon = soundButton?.querySelector('img');
 
+// Sound buttons
+const soundButtons = document.querySelectorAll('.button-sound');
 let isMuted = false;
 
 // Start → Show instruction page
@@ -40,13 +40,18 @@ helpButton?.addEventListener('click', () => {
 });
 
 // Sound (top right) → Toggle sound icon
-soundButton?.addEventListener('click', () => {
-	isMuted = !isMuted;
-	if (soundIcon) {
-		soundIcon.src = isMuted
-			? 'images/button/button-muted.png'
-			: 'images/button/button-sound.png';
-	}
-	// Optional: control background music mute/unmute
-	// backgroundMusic.muted = isMuted;
+soundButtons.forEach(button => {
+	button.addEventListener('click', () => {
+		isMuted = !isMuted;
+
+		soundButtons.forEach(btn => {
+			const icon = btn.querySelector('img');
+			if (icon) {
+				icon.src = isMuted
+					? 'images/button/button-muted.png'
+					: 'images/button/button-sound.png';
+			}
+		});
+
+	});
 });
