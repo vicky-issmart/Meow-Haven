@@ -724,13 +724,33 @@ section {
 	margin-left: 5%;
 }
 
-
 .item-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
 	width: calc(100% - 40px);
 	max-width: 800px;
 	margin-bottom: 20px;
 	aspect-ratio: 9 / 8;
 	background-image: url('../images/item-panel-horizontal.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	transform-origin: center;
+	overflow: hidden;
+}
+
+.item-grid {
+	display: none;
+}
+
+.item-grid.active {
+	width: 100%;
+	grid-column: 1 / span 1;
+	grid-row: 1 / span 1;
+	max-width: 800px;
+	margin-bottom: 20px;
+	aspect-ratio: 9 / 8;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -853,6 +873,54 @@ section {
 	width: 50%;
   }
 
+  .cell.heart-picture-icon {
+	grid-column: 2;
+	grid-row: 2;
+  }
+  .cell.heart-picture-icon img {
+	width: 50%;
+  }
+
+  .cell.cat-picture-icon {
+	grid-column: 4;
+	grid-row: 2;
+  }
+  .cell.cat-picture-icon img {
+	width: 30%;
+  }
+
+  .cell.small-plant-icon {
+	grid-column: 6;
+	grid-row: 2;
+  }
+  .cell.small-plant-icon img {
+	width: 40%;
+  }
+
+  .cell.ball-icon {
+	grid-column: 8;
+	grid-row: 2;
+  }
+  .cell.ball-icon img {
+	width: 40%;
+  }
+
+  .cell.cubic-bricks-icon {
+	grid-column: 2;
+	grid-row: 4;
+  }
+  .cell.cubic-bricks-icon img {
+	width: 40%;
+  }
+
+  .cell.cat-toy-icon {
+	grid-column: 4;
+	grid-row: 4;
+  }
+  .cell.cat-toy-icon img {
+	width: 50%;
+  }
+
 .btn-prev,
 .btn-next {
 	background: none;
@@ -882,6 +950,10 @@ section {
 .btn-prev img:hover,
 .btn-next img:hover {
 	transform: scale(1.1);
+}
+
+.page {
+	display: none;
 }
 
 /* Media Queries - Game Page */

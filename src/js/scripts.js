@@ -55,3 +55,32 @@ soundButtons.forEach(button => {
 
 	});
 });
+
+// Game page navigation
+const pages = document.querySelectorAll('.item-grid');
+const nextBtn = document.querySelector('.btn-next');
+const prevBtn = document.querySelector('.btn-prev');
+let currentPage = 0;
+
+function showPage(index) {
+  pages.forEach((page, i) => {
+    page.classList.toggle('active', i === index);
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentPage > 0) {
+    currentPage--;
+    showPage(currentPage);
+  }
+});
+
+// Initialize
+showPage(currentPage);
