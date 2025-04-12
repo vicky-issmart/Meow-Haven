@@ -83,61 +83,73 @@
 				<img src="images/room-background.png" alt="Room" class="room-background" />
 
 				<!-- Furniture Display Layer -->
-				<div class="corner-tree"></div>
-				<div class="cat-bed"></div>
-				<div class="four-deck-tree"></div>
-				<div class="three-deck-tree"></div>
-				<div class="round-tree"></div>
-				<div class="curtains-window"></div>
-				<div class="shuttered-window"></div>
-				<div class="small-window"></div>
-				<div class="table"></div>
-				<div class="large-plant"></div>
-				<div class="water-bowl"></div>
-				<div class="food-bowl"></div>
-				<div class="heart-picture"></div>
-				<div class="cat-picture"></div>
-				<div class="small-plant"></div>
-				<div class="ball-left"></div>
-				<div class="ball-right"></div>
-				<div class="cubic-bricks"></div>
-				<div class="cat-toy"></div>
+				<div class="corner-tree" data-item="Var-corner-tree"></div>
+				<div class="cat-bed" data-item="Var-cat-bed"></div>
+				<div class="four-deck-tree" data-item="Var-four-deck-tree"></div>
+				<div class="three-deck-tree" data-item="Var-three-deck-tree"></div>
+				<div class="round-tree" data-item="Var-round-tree"></div>
+				<div class="curtains-window" data-item="Var-curtains-window"></div>
+				<div class="shuttered-window" data-item="Var-shuttered-window"></div>
+				<div class="small-window" data-item="Var-small-window"></div>
+				<div class="table" data-item="Var-table"></div>
+				<div class="large-plant" data-item="Var-large-plant"></div>
+				<div class="water-bowl" data-item="Var-water-bowl"></div>
+				<div class="food-bowl" data-item="Var-food-bowl"></div>
+				<div class="heart-picture" data-item="Var-heart-picture"></div>
+				<div class="cat-picture" data-item="Var-cat-picture"></div>
+				<div class="small-plant" data-item="Var-small-plant"></div>
+				<div class="ball-left" data-item="Var-ball"></div>
+				<div class="ball-right" data-item="Var-ball"></div>
+				<div class="cubic-bricks" data-item="Var-cubic-bricks"></div>
+				<div class="cat-toy" data-item="Var-cat-toy"></div>
 
 
 			</div>
 
 			<!-- Furniture Selection Panel -->
 			
-			<div class="item-container">
+			<div class="item-container">  <!--Background of items-->
 					<!-- Furniture Icon Buttons -->
-				<div id="items-page-1" class="item-grid active">
-					<div class="cell corner-tree-icon"><img src="images/item/corner_cat_tree_1.png" alt="Corner Cat Tree"></div>
-					<div class="cell cat-bed-icon"><img src="images/item/cat_bed_1.png" alt="Cat Bed"></div>
-					<div class="cell four-deck-tree-icon"><img src="images/item/four_deck_tree_1.png" alt="Four-Deck Cat Tree"></div>
-					<div class="cell three-deck-tree-icon"><img src="images/item/three_deck_tree_1.png" alt="Three-Deck Cat Tree"></div>
-					<div class="cell round-tree-icon"><img src="images/item/round_tree_1.png" alt="Round Shape Cat Tree"></div>
-					<div class="cell curtains-window-icon"><img src="images/item/curtains_window_1.png" alt="Window with Curtains"></div>
-					<div class="cell shuttered-window-icon"><img src="images/item/shuttered_window_1.png" alt="Shuttered Window"></div>
-					<div class="cell small-window-icon"><img src="images/item/small_window_1.png" alt="Small-window"></div>
-					<div class="cell table-icon"><img src="images/item/table_1.png" alt="Table"></div>
-					<div class="cell large-plant-icon"><img src="images/item/large_plant_1.png" alt="Large Plant"></div>
-					<div class="cell water-bowl-icon"><img src="images/item/water_bowl_1.png" alt="Water Bowl"></div>
-					<div class="cell food-bowl-icon"><img src="images/item/food_bowl_1.png" alt="Food Bowl"></div>
+				<div class="page main-page active" id="mainPage1">
+					<div class="item-grid">
+						<div class="cell corner-tree-icon" data-item="Var-corner-tree"><img src="images/item/corner_cat_tree_1.png" alt="Corner Cat Tree"></div>
+						<div class="cell cat-bed-icon" data-item="Var-cat-bed"><img src="images/item/cat_bed_1.png" alt="Cat Bed"></div>
+						<div class="cell four-deck-tree-icon" data-item="Var-four-deck-tree"><img src="images/item/four_deck_tree_1.png" alt="Four-Deck Cat Tree"></div>
+						<div class="cell three-deck-tree-icon" data-item="Var-three-deck-tree"><img src="images/item/three_deck_tree_1.png" alt="Three-Deck Cat Tree"></div>
+						<div class="cell round-tree-icon" data-item="Var-round-tree"><img src="images/item/round_tree_1.png" alt="Round Shape Cat Tree"></div>
+						<div class="cell curtains-window-icon" data-item="Var-curtains-window"><img src="images/item/curtains_window_1.png" alt="Window with Curtains"></div>
+						<div class="cell shuttered-window-icon" data-item="Var-shuttered-window"><img src="images/item/shuttered_window_1.png" alt="Shuttered Window"></div>
+						<div class="cell small-window-icon" data-item="Var-small-window"><img src="images/item/small_window_1.png" alt="Small-window"></div>
+						<div class="cell table-icon" data-item="Var-table"><img src="images/item/table_1.png" alt="Table"></div>
+						<div class="cell large-plant-icon" data-item="Var-large-plant"><img src="images/item/large_plant_1.png" alt="Large Plant"></div>
+						<div class="cell water-bowl-icon" data-item="Var-water-bowl"><img src="images/item/water_bowl_1.png" alt="Water Bowl"></div>
+						<div class="cell food-bowl-icon" data-item="Var-food-bowl"><img src="images/item/food_bowl_1.png" alt="Food Bowl"></div>
 					
-					<button class="btn-next"><img src="images/button/button-next.png" /></button>
-					
+						<button class="btn-next"><img src="images/button/button-next.png" /></button>
+					</div>
 				</div>
 
-				<div id="items-page-2" class="item-grid">
-					<div class="cell heart-picture-icon"><img src="images/item/heart_picture_1.png" alt="Heart Picture"></div>
-					<div class="cell cat-picture-icon"><img src="images/item/cat_picture_1.png" alt="Cat Portrait"></div>
-					<div class="cell small-plant-icon"><img src="images/item/small_plant_1.png" alt="Small Plant"></div>
-					<div class="cell ball-icon"><img src="images/item/ball_1.png" alt="Balls"></div>
-					<div class="cell cubic-bricks-icon"><img src="images/item/cubic_bricks_1.png" alt="Cubic Bricks"></div>
-					<div class="cell cat-toy-icon"><img src="images/item/cat_toy_1.png" alt="Cat Toy"></div>
-					<button class="btn-prev"><img src="images/button/button-prev.png" /></button>
+				<div class="page main-page" id="mainPage2">
+					<div class="item-grid">
+						<div class="cell heart-picture-icon" data-item="Var-heart-picture"><img src="images/item/heart_picture_1.png" alt="Heart Picture"></div>
+						<div class="cell cat-picture-icon" data-item="Var-cat-picture"><img src="images/item/cat_picture_1.png" alt="Cat Portrait"></div>
+						<div class="cell small-plant-icon" data-item="Var-small-plant"><img src="images/item/small_plant_1.png" alt="Small Plant"></div>
+						<div class="cell ball-icon" data-item="Var-ball"><img src="images/item/ball_1.png" alt="Balls"></div>
+						<div class="cell cubic-bricks-icon" data-item="Var-cubic-bricks"><img src="images/item/cubic_bricks_1.png" alt="Cubic Bricks"></div>
+						<div class="cell cat-toy-icon" data-item="Var-cat-toy"><img src="images/item/cat_toy_1.png" alt="Cat Toy"></div>
+						
+						<button class="btn-prev"><img src="images/button/button-prev.png" /></button>
+					</div>
+					<!-- Pagination Buttons -->
 				</div>
-				<!-- Pagination Buttons -->
+
+				<div class="page" id="customizePage">
+					<div class="item-grid" id="colorOptions">
+					  <!-- Dynamically generated -->
+					</div>
+					<button class="back-btn"></button>
+				  </div>
+
 			</div>
 
 				

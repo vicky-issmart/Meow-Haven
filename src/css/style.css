@@ -740,11 +740,17 @@ section {
 	overflow: hidden;
 }
 
-.item-grid {
+.page {
 	display: none;
 }
 
-.item-grid.active {
+.page.active {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+
+.item-grid {
 	width: 100%;
 	grid-column: 1 / span 1;
 	grid-row: 1 / span 1;
@@ -762,7 +768,25 @@ section {
 
 }
 
-
+.back-btn {
+	display: flex;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 20%;
+	background-image: url('../images/button/button-back.png');
+	background-color: transparent;
+	justify-self: center;
+	grid-column: 1 / span 1 ;
+	grid-row: 1 / span 1 ; 
+	margin-top: 65%;
+	border: none;
+	cursor: pointer;
+	z-index: 5;
+	transform-origin: center;
+	transition: transform 0.2s ease;
+  }
+  
 
 .cell {
 	display: flex;
@@ -940,6 +964,9 @@ section {
 	justify-self: end;
 }
 
+
+  
+
 .btn-prev img,
 .btn-next img {
 	width: 25px;
@@ -948,12 +975,11 @@ section {
 }
 
 .btn-prev img:hover,
-.btn-next img:hover {
+.btn-next img:hover,
+.back-btn:hover {
 	transform: scale(1.1);
 }
 
-.page {
-	display: none;
-}
+
 
 /* Media Queries - Game Page */
