@@ -1,38 +1,4 @@
-/*
-CSS controls the styling of the page.
-You can write a color in directly, or use variables.
-Try changing the color from blue to red in the
-primary color variable below.
-*/
-
-/*
-CSS doesn't allow variables to be used in media
-queries just yet, but you can use these values
-to help you out.
-
-	--size-xs: 320px;
-	--size-sm: 480px;
-	--size-md: 768px;
-	--size-lg: 1024px;
-	--size-xl: 1200px;
-*/
-
-/* ========== general setting ========== */
-@font-face {
-	font-family: 'GingerCat';
-	src: url('../fonts/GingerCat.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'CalliCat';
-	src: url('../fonts/CalliCat.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'DKBorrowdale';
-	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
-}
-
+/* ========== 0. general setting ========== */
 * {
 	margin: 0;
 	padding: 0;
@@ -52,7 +18,23 @@ section {
 	text-align: center;
 }
 
-/* Button Interaction Effects (Hover & Active) */
+/* 0.1 Fonts */
+@font-face {
+	font-family: 'GingerCat';
+	src: url('../fonts/GingerCat.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'CalliCat';
+	src: url('../fonts/CalliCat.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'DKBorrowdale';
+	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
+}
+
+/* 0.2 Button Interaction Effects (Hover & Active) */
 [class^="button-"] {
 	cursor: pointer;
 	background: none;
@@ -73,20 +55,7 @@ section {
 	transform: scale(0.95);
 }
 
-/* ========== Start Page ========== */
-.start-page {
-	background-image: url('../images/background-pink.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	color: #4C3620;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-}
-
-/* Top Buttons */
+/* 0.3 Top Buttons */
 .button-help,
 .button-sound {
 	position: absolute;
@@ -107,7 +76,20 @@ section {
 	height: auto;
 }
 
-/* Title & Subtitle & Start Button */
+/* ========== 1. Home Page ========== */
+.home-page {
+	background-image: url('../images/background-pink.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #4C3620;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* 1.1 Title & Subtitle & Start Button */
 .game-title {
 	font-family: 'Ginger Cat', sans-serif;
 	font-size: clamp(36px, 10vw, 120px);
@@ -128,7 +110,7 @@ section {
 	height: auto;
 }
 
-/* Bottom Cats */
+/* 1.2 Bottom Cats */
 :root {
 	--sprite-size: clamp(80px, 14vw, 150px);
 }
@@ -204,7 +186,7 @@ section {
 	display: none;
 }
 
-/* Animations */
+/* 1.3 Animations */
 @keyframes dance-animation {
 	from {
 		background-position: 0 0;
@@ -255,7 +237,7 @@ section {
 	}
 }
 
-/* Media Queries - Start Page */
+/* 1.4 Media Queries - Home Page */
 @media (min-width: 768px) {
 
 	.button-help,
@@ -323,7 +305,7 @@ section {
 }
 
 
-/* ========== Instruction Page ========== */
+/* ========== 2. Instruction Page ========== */
 .instruction-page {
 	background-image: url('../images/background-pink.png');
 	background-repeat: no-repeat;
@@ -346,9 +328,11 @@ section {
 
 	width: 90vw;
 	max-width: 540px;
+	min-width: 300px;
 	aspect-ratio: 1 / 1.34;
 
-	padding: 8vh 6vw 6vh;
+	padding-block: 8vh 6vh;
+	padding-inline: 24px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -358,7 +342,7 @@ section {
 	container-name: instructions;
 }
 
-/* Container Queries for Typography */
+/* 2.1 Container Queries for Typography */
 @container instructions (max-width: 310px) {
 	.instruction-title {
 		font-size: 1.25rem;
@@ -449,7 +433,7 @@ section {
 	}
 }
 
-/* ========== Typography & Layout ========== */
+/* 2.2 Typography & Layout*/
 .instruction-title {
 	font-family: 'Calli Cat', sans-serif;
 	text-align: center;
@@ -472,7 +456,7 @@ section {
 }
 
 
-/* ========== Game Page ========== */
+/* ========== 3. Game Page ========== */
 .game-page {
 	background-image: url('../images/background-blue.png');
 	background-repeat: no-repeat;
@@ -484,10 +468,44 @@ section {
 	justify-content: flex-start;
 }
 
+/* 3.1 Buttons (Back, Prev, Next) */
+.button-back {
+	display: flex;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	width: 20%;
+	background-image: url('../images/button/button-back.png');
+	justify-self: center;
+	grid-column: 1 / span 1;
+	grid-row: 1 / span 1;
+	margin-top: 65%;
+	z-index: 5;
+	transform-origin: center;
+}
+
+.button-prev {
+	grid-column: 1 / span 1;
+	grid-row: 4 / span 1;
+	justify-self: start;
+}
+
+.button-next {
+	grid-column: 9 / span 1;
+	grid-row: 4 / span 1;
+	justify-self: end;
+}
+
+.button-prev img,
+.button-next img {
+	width: 25px;
+	height: auto;
+}
+
+/* 3.2 Room Container & Background */
 .room-container {
 	position: relative;
 	width: calc(100% - 40px);
-	max-width: 800px;
 	aspect-ratio: 1 / 1;
 	margin-top: 10px;
 	overflow: hidden;
@@ -495,7 +513,6 @@ section {
 	grid-template-columns: repeat(32, 1fr);
 	grid-template-rows: repeat(32, 1fr);
 	transform-origin: center;
-	/* make sure scaling happens from the center */
 }
 
 .room-background {
@@ -508,33 +525,50 @@ section {
 	z-index: 1;
 }
 
+/* 3.3 Furniture Items */
+.corner-tree,
+.cat-bed,
+.four-deck-tree,
+.three-deck-tree,
+.round-tree,
+.curtains-window,
+.shuttered-window,
+.small-window,
+.table,
+.large-plant,
+.water-bowl,
+.food-bowl,
+.heart-picture,
+.cat-picture,
+.small-plant,
+.ball-left,
+.ball-right,
+.cubic-bricks,
+.cat-toy {
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 2;
+}
 
 .corner-tree {
 	width: 70.23%;
 	background-image: url('../images/item/corner_cat_tree_1.png');
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 16 / span 3;
 	grid-row: 9 / span 6;
-	z-index: 2;
 }
 
 .cat-bed {
 	width: 87.4%;
 	background-image: url('../images/item/cat_bed_1.png');
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 17 / span 8;
 	grid-row: 14 / span 6;
-	z-index: 2;
 	margin-left: 7%;
 }
 
 .four-deck-tree {
 	background-image: url('../images/item/four_deck_tree_1.png');
 	width: 88.3%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 25 / span 6;
 	grid-row: 10 / span 11;
 	z-index: 3;
@@ -544,8 +578,6 @@ section {
 .three-deck-tree {
 	background-image: url('../images/item/three_deck_tree_1.png');
 	width: 100%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 8 / span 7;
 	grid-row: 9 / span 10;
 	z-index: 3;
@@ -556,8 +588,6 @@ section {
 .round-tree {
 	background-image: url('../images/item/round_tree_1.png');
 	width: 85.3%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 3 / span 4;
 	grid-row: 16 / span 6;
 	z-index: 3;
@@ -567,22 +597,16 @@ section {
 .curtains-window {
 	background-image: url('../images/item/curtains_window_1.png');
 	width: 97%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 19 / span 6;
 	grid-row: 6 / span 9;
-	z-index: 2;
 	margin-left: 5%;
 }
 
 .shuttered-window {
 	background-image: url('../images/item/shuttered_window_1.png');
 	width: 80.34%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 10 / span 5;
 	grid-row: 6 / span 9;
-	z-index: 2;
 	margin-left: 15%;
 	margin-top: 15%;
 }
@@ -590,77 +614,59 @@ section {
 .small-window {
 	background-image: url('../images/item/small_window_1.png');
 	width: 76.4%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 3 / span 5;
 	grid-row: 11 / span 6;
-	z-index: 2;
 	margin-left: 10%;
 }
 
 .table {
 	background-image: url('../images/item/table_1.png');
 	width: 78.14%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 9 / span 5;
 	grid-row: 19 / span 6;
-	z-index: 2;
 	margin-left: 10%;
 	margin-top: 8.3%;
 }
+
 .large-plant {
 	background-image: url('../images/item/large_plant_1.png');
 	width: 95.6%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 13 / span 3;
 	grid-row: 9 / span 7;
 	z-index: 3;
 	margin-left: 7%;
 	margin-top: 5%;
 }
+
 .water-bowl {
 	background-image: url('../images/item/water_bowl_1.png');
 	width: 89.1%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 19 / span 3;
 	grid-row: 22 / span 3;
-	z-index: 2;
 	margin-top: 27%;
 }
 
 .food-bowl {
 	background-image: url('../images/item/food_bowl_1.png');
 	width: 90.8%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 15 / span 3;
 	grid-row: 23 / span 3;
-	z-index: 2;
 	margin-top: 13%;
 }
 
 .heart-picture {
 	background-image: url('../images/item/heart_picture_1.png');
 	width: 61.7%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 15 / span 3;
 	grid-row: 6 / span 2;
-	z-index: 2;
 	margin-left: 10%;
 }
 
 .cat-picture {
 	background-image: url('../images/item/cat_picture_1.png');
 	width: 53.4%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 17 / span 3;
 	grid-row: 6 / span 4;
-	z-index: 2;
 	margin-top: 10%;
 	margin-left: 16.6%;
 }
@@ -668,22 +674,16 @@ section {
 .small-plant {
 	background-image: url('../images/item/small_plant_1.png');
 	width: 76.35%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 7 / span 2;
 	grid-row: 17 / span 3;
-	z-index: 2;
 	margin-top: 16.7%;
 }
 
 .ball-left {
 	background-image: url('../images/item/ball_1.png');
 	width: 63.35%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 16 / span 4;
 	grid-row: 13 / span 3;
-	z-index: 2;
 	margin-top: 3.4%;
 	margin-left: 17.5%;
 }
@@ -691,11 +691,8 @@ section {
 .ball-right {
 	background-image: url('../images/item/ball_1.png');
 	width: 84.4%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 23 / span 3;
 	grid-row: 17 / span 3;
-	z-index: 2;
 	margin-top: 6.7%;
 	margin-left: 16.7%;
 }
@@ -703,11 +700,8 @@ section {
 .cubic-bricks {
 	background-image: url('../images/item/cubic_bricks_1.png');
 	width: 76.35%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 24 / span 2;
 	grid-row: 18 / span 2;
-	z-index: 2;
 	margin-top: 30%;
 	margin-left: 35%;
 }
@@ -715,21 +709,18 @@ section {
 .cat-toy {
 	background-image: url('../images/item/cat_toy_1.png');
 	width: 92.4%;
-	background-size: contain;
-	background-repeat: no-repeat;
 	grid-column: 28 / span 3;
 	grid-row: 20 / span 3;
-	z-index: 2;
 	margin-top: 8%;
 	margin-left: 5%;
 }
 
+/* 3.4 Item Selection Panel */
 .item-container {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 	width: calc(100% - 40px);
-	max-width: 800px;
 	margin-bottom: 20px;
 	aspect-ratio: 9 / 8;
 	background-image: url('../images/item-panel-horizontal.png');
@@ -740,6 +731,7 @@ section {
 	overflow: hidden;
 }
 
+/* 3.5 Page Visibility */
 .page {
 	display: none;
 }
@@ -750,44 +742,22 @@ section {
 	grid-template-rows: 1fr;
 }
 
+/* 3.6 Item Grid */
 .item-grid {
 	width: 100%;
 	grid-column: 1 / span 1;
 	grid-row: 1 / span 1;
 	max-width: 800px;
 	margin-bottom: 20px;
-	aspect-ratio: 9 / 8;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
 	display: grid;
-	grid-template-columns: 10% 17.8% 3% 17.8% 3.44% 17.8% 2.5% 17.8% 9.86%;
-	grid-template-rows: 20% 20% 2.456% 20% 2.456% 20% 15.088%;
 	transform-origin: center;
 	overflow: hidden;
-
 }
 
-.back-btn {
-	display: flex;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	width: 20%;
-	background-image: url('../images/button/button-back.png');
-	background-color: transparent;
-	justify-self: center;
-	grid-column: 1 / span 1 ;
-	grid-row: 1 / span 1 ; 
-	margin-top: 65%;
-	border: none;
-	cursor: pointer;
-	z-index: 5;
-	transform-origin: center;
-	transition: transform 0.2s ease;
-  }
-  
-
+/* 3.7 Icon Cells */
 .cell {
 	display: flex;
 	justify-content: center;
@@ -795,191 +765,355 @@ section {
 	width: 100%;
 	transition: transform 0.2s ease;
 	cursor: pointer;
-  }
-  .cell:hover {
+}
+
+.cell:hover {
 	transform: scale(1.05);
 }
 
-  .cell.corner-tree-icon {
+.cell.corner-tree-icon {
 	grid-column: 2;
 	grid-row: 2;
-  }
-  .cell.corner-tree-icon img {
+}
+
+.cell.corner-tree-icon img {
 	width: 25%;
-  }
+}
 
-
-  .cell.cat-bed-icon {
+.cell.cat-bed-icon {
 	grid-column: 4;
 	grid-row: 2;
-  }
-  .cell.cat-bed-icon img {
+}
+
+.cell.cat-bed-icon img {
 	width: 70%;
-  }
+}
+
+.cell.four-deck-tree-icon {
+	grid-column: 6;
+	grid-row: 2;
+}
+
+.cell.four-deck-tree-icon img {
+	width: 35%;
+}
+
+.cell.three-deck-tree-icon {
+	grid-column: 8;
+	grid-row: 2;
+}
+
+.cell.three-deck-tree-icon img {
+	width: 55%;
+}
+
+.cell.round-tree-icon {
+	grid-column: 2;
+	grid-row: 4;
+}
+
+.cell.round-tree-icon img {
+	width: 40%;
+}
+
+.cell.curtains-window-icon {
+	grid-column: 4;
+	grid-row: 4;
+}
+
+.cell.curtains-window-icon img {
+	width: 50%;
+}
+
+.cell.shuttered-window-icon {
+	grid-column: 6;
+	grid-row: 4;
+}
+
+.cell.shuttered-window-icon img {
+	width: 40%;
+}
+
+.cell.small-window-icon {
+	grid-column: 8;
+	grid-row: 4;
+}
+
+.cell.small-window-icon img {
+	width: 40%;
+}
+
+.cell.table-icon {
+	grid-column: 2;
+	grid-row: 6;
+}
+
+.cell.table-icon img {
+	width: 50%;
+}
+
+.cell.large-plant-icon {
+	grid-column: 4;
+	grid-row: 6;
+}
+
+.cell.large-plant-icon img {
+	width: 30%;
+}
+
+.cell.water-bowl-icon {
+	grid-column: 6;
+	grid-row: 6;
+}
+
+.cell.water-bowl-icon img {
+	width: 50%;
+}
+
+.cell.food-bowl-icon {
+	grid-column: 8;
+	grid-row: 6;
+}
+
+.cell.food-bowl-icon img {
+	width: 50%;
+}
+
+.cell.heart-picture-icon {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.cell.heart-picture-icon img {
+	width: 50%;
+}
+
+.cell.cat-picture-icon {
+	grid-column: 4;
+	grid-row: 2;
+}
+
+.cell.cat-picture-icon img {
+	width: 30%;
+}
+
+.cell.small-plant-icon {
+	grid-column: 6;
+	grid-row: 2;
+}
+
+.cell.small-plant-icon img {
+	width: 40%;
+}
+
+.cell.ball-icon {
+	grid-column: 8;
+	grid-row: 2;
+}
+
+.cell.ball-icon img {
+	width: 40%;
+}
+
+.cell.cubic-bricks-icon {
+	grid-column: 2;
+	grid-row: 4;
+}
+
+.cell.cubic-bricks-icon img {
+	width: 40%;
+}
+
+.cell.cat-toy-icon {
+	grid-column: 4;
+	grid-row: 4;
+}
+
+.cell.cat-toy-icon img {
+	width: 50%;
+}
+
+/* 3.8 Media Queries - Game Page */
+@media (max-width: 1024px) {
+
+	html,
+	body {
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.game-page {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		max-height: 100vh;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.room-container,
+	.item-container {
+		max-height: 46vh;
+		width: 90vw;
+		max-width: 400px;
+	}
+
+	.item-container {
+		background-image: url('../images/item-panel-horizontal.png');
+		aspect-ratio: 9 / 8;
+	}
+
+	.item-grid {
+		aspect-ratio: 9 / 8;
+		grid-template-columns: 10% 17.8% 3% 17.8% 3.44% 17.8% 2.5% 17.8% 9.86%;
+		grid-template-rows: 20% 20% 2.456% 20% 2.456% 20% 15.088%;
+	}
+}
+
+@media (min-width: 1025px) {
+	.game-page {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		padding: 5vh 5vw;
+	}
+
+	.room-item-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: clamp(2vw, 5vw, 8vw);
+		width: 100%;
+		max-width: 1440px;
+	}
+
+	.button-prev {
+		grid-column: 1 / span 1;
+		grid-row: 5 / span 1;
+	}
+
+	.button-next {
+		grid-column: 7 / span 1;
+		grid-row: 5 / span 1;
+	}
+
+	.button-prev img,
+	.button-next img {
+		width: 35px;
+		height: auto;
+	}
+
+	.button-back {
+		margin-top: 100%;
+	}
+
+	.room-container {
+		max-width: 720px;
+	}
+
+	.item-container {
+		background-image: url('../images/item-panel-vertical.png');
+		aspect-ratio: 4 / 5;
+		max-width: 500px;
+	}
+
+	.item-grid {
+		aspect-ratio: 4 / 5;
+		grid-template-columns: 16.25% 20% 3.75% 20% 3.75% 20% 16.25%;
+		grid-template-rows: 15% 16% 3% 16% 3% 16% 3% 16% 12%;
+	}
+
+	.cell.corner-tree-icon {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.cell.cat-bed-icon {
+		grid-column: 4;
+		grid-row: 2;
+	}
 
 	.cell.four-deck-tree-icon {
-	grid-column: 6;
-	grid-row: 2;
-  }
-  .cell.four-deck-tree-icon img {
-	width: 35%;
-  }
+		grid-column: 6;
+		grid-row: 2;
+	}
 
-  .cell.three-deck-tree-icon {
-	grid-column: 8;
-	grid-row: 2;
-  }
-  .cell.three-deck-tree-icon img {
-	width: 55%;
-  }
+	.cell.three-deck-tree-icon {
+		grid-column: 2;
+		grid-row: 4;
+	}
 
-  .cell.round-tree-icon {
-	grid-column: 2;
-	grid-row: 4;
-  }
-  .cell.round-tree-icon img {
-	width: 40%;
-  }
+	.cell.round-tree-icon {
+		grid-column: 4;
+		grid-row: 4;
+	}
 
-  .cell.curtains-window-icon {
-	grid-column: 4;
-	grid-row: 4;
-  }
-  .cell.curtains-window-icon img {
-	width: 50%;
-  }
+	.cell.curtains-window-icon {
+		grid-column: 6;
+		grid-row: 4;
+	}
 
-  .cell.shuttered-window-icon {
-	grid-column: 6;
-	grid-row: 4;
-  }
-  .cell.shuttered-window-icon img {
-	width: 40%;
-  }
+	.cell.shuttered-window-icon {
+		grid-column: 2;
+		grid-row: 6;
+	}
 
-  .cell.small-window-icon {
-	grid-column: 8;
-	grid-row: 4;
-  }
-  .cell.small-window-icon img {
-	width: 40%;
-  }
+	.cell.small-window-icon {
+		grid-column: 4;
+		grid-row: 6;
+	}
 
-  .cell.table-icon {
-	grid-column: 2;
-	grid-row: 6;
-  }
-  .cell.table-icon img {
-	width: 50%;
-  }
+	.cell.table-icon {
+		grid-column: 6;
+		grid-row: 6;
+	}
 
-  .cell.large-plant-icon {
-	grid-column: 4;
-	grid-row: 6;
-  }
-  .cell.large-plant-icon img {
-	width: 30%;
-  }
+	.cell.large-plant-icon {
+		grid-column: 2;
+		grid-row: 8;
+	}
 
-  .cell.water-bowl-icon {
-	grid-column: 6;
-	grid-row: 6;
-  }
-  .cell.water-bowl-icon img {
-	width: 50%;
-  }
+	.cell.water-bowl-icon {
+		grid-column: 4;
+		grid-row: 8;
+	}
 
-  .cell.food-bowl-icon {
-	grid-column: 8;
-	grid-row: 6;
-  }
-  .cell.food-bowl-icon img {
-	width: 50%;
-  }
+	.cell.food-bowl-icon {
+		grid-column: 6;
+		grid-row: 8;
+	}
 
-  .cell.heart-picture-icon {
-	grid-column: 2;
-	grid-row: 2;
-  }
-  .cell.heart-picture-icon img {
-	width: 50%;
-  }
+	.cell.heart-picture-icon {
+		grid-column: 2;
+		grid-row: 2;
+	}
 
-  .cell.cat-picture-icon {
-	grid-column: 4;
-	grid-row: 2;
-  }
-  .cell.cat-picture-icon img {
-	width: 30%;
-  }
+	.cell.cat-picture-icon {
+		grid-column: 4;
+		grid-row: 2;
+	}
 
-  .cell.small-plant-icon {
-	grid-column: 6;
-	grid-row: 2;
-  }
-  .cell.small-plant-icon img {
-	width: 40%;
-  }
+	.cell.small-plant-icon {
+		grid-column: 6;
+		grid-row: 2;
+	}
 
-  .cell.ball-icon {
-	grid-column: 8;
-	grid-row: 2;
-  }
-  .cell.ball-icon img {
-	width: 40%;
-  }
+	.cell.ball-icon {
+		grid-column: 2;
+		grid-row: 4;
+	}
 
-  .cell.cubic-bricks-icon {
-	grid-column: 2;
-	grid-row: 4;
-  }
-  .cell.cubic-bricks-icon img {
-	width: 40%;
-  }
+	.cell.cubic-bricks-icon {
+		grid-column: 4;
+		grid-row: 4;
+	}
 
-  .cell.cat-toy-icon {
-	grid-column: 4;
-	grid-row: 4;
-  }
-  .cell.cat-toy-icon img {
-	width: 50%;
-  }
+	.cell.cat-toy-icon {
+		grid-column: 6;
+		grid-row: 4;
+	}
 
-.btn-prev,
-.btn-next {
-	background: none;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	grid-row: 4 / span 1;
 }
-
-.btn-prev {
-	grid-column: 1 / span 1;
-	justify-self: start;
-}
-
-.btn-next {
-	grid-column: 9 / span 1;
-	justify-self: end;
-}
-
-
-  
-
-.btn-prev img,
-.btn-next img {
-	width: 25px;
-	height: auto;
-	transition: transform 0.2s ease;
-}
-
-.btn-prev img:hover,
-.btn-next img:hover,
-.back-btn:hover {
-	transform: scale(1.1);
-}
-
-
-
-/* Media Queries - Game Page */
