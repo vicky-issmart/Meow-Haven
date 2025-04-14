@@ -482,6 +482,11 @@ section {
 	margin-top: 65%;
 	z-index: 5;
 	transform-origin: center;
+	transition: transform 0.2s ease;
+}
+
+.button-back:hover {
+	transform: scale(1.05);
 }
 
 .button-prev {
