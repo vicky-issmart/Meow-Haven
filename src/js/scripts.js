@@ -284,3 +284,89 @@ function showCustomizePage(itemType) {
 		showMainPage(currentMainPage);
 	});
 }
+
+// drag the cat
+const bowl = document.querySelector('.food-bowl');
+const zones = {
+	Bed:      'Room-Sleeping-Cat',
+	Excite_Zone:     'Room-Excited-Cat',
+	Dance_Zone:    'Room-Dancing-Cat',
+	Eat_Zone:      'Room-Eating-Cat',
+	Idle_Zone:     'Room-Idle-Cat',
+	Laydown_Zone:  'Room-Laydown-Cat'
+  };
+  
+  let currentId = 'Room-Box-Cat';
+  let dragEl     = null;
+  let startX, startY, dx = 0, dy = 0, dragging = false;
+  
+  const room = document.getElementById('room');
+  const bed  = document.getElementById('bed');
+  const game = document.getElementById('game');
+  
+  function resetTransform(el) {
+	el.style.transform = 'translate(0,0)';
+	dx = dy = 0;
+  }
+  
+  // Start drag on whichever cat is visible
+  room.addEventListener('pointerdown', e => {
+	if (!e.target.classList.contains('draggable-cat')) return;
+	dragEl = e.target;
+	dragging = true;
+	startX = e.clientX;
+	startY = e.clientY;
+	dragEl.setPointerCapture(e.pointerId);
+	dragEl.classList.add('dragging');
+  });
+  
+  // Move
+  room.addEventListener('pointermove', e => {
+	if (!dragging || !dragEl) return;
+	let deltaX = e.clientX - startX;
+	let deltaY = e.clientY - startY;
+	dragEl.style.transform = `translate(${dx + deltaX}px,${dy + deltaY}px)`;
+  });
+  
+  // End drag
+room.addEventListener('pointerup', e => {
+	if (!dragging || !dragEl) return;
+	dragging = false;
+	dragEl.classList.remove('dragging');
+  
+	const x = e.clientX, y = e.clientY;
+	let dropped = false;
+  
+	// Check each zone
+	for (let zoneId in zones) {
+	  const z = document.getElementById(zoneId);
+	  const r = z.getBoundingClientRect();
+	  if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
+		dropped = true;
+		// hide old
+		document.getElementById(currentId).style.display = 'none';
+		// show new
+		currentId = zones[zoneId];
+		const newEl = document.getElementById(currentId);
+		newEl.style.display = 'block';
+		resetTransform(newEl);
+		break;
+	  }
+	}
+  
+	if (!dropped) {
+	  // bounce back
+	  resetTransform(dragEl);
+	} else {
+	  // after a successful drop, future drags come from the new element
+	  dragEl = document.getElementById(currentId);
+	}
+  });
+  
+  // Cancel
+  room.addEventListener('pointercancel', () => {
+	if (!dragging || !dragEl) return;
+	dragging = false;
+	dragEl.classList.remove('dragging');
+	resetTransform(dragEl);
+  });

@@ -90,12 +90,13 @@
 
 			<div class="room-item-container">
 				<!-- Room Background -->
-				<div class="room-container">
+				<div class="room-container" id="room">
 					<img src="images/room-background.png" alt="Room" class="room-background" />
 
 					<!-- Furniture Display Layer -->
 					<div class="corner-tree" data-item="Var-corner-tree"></div>
 					<div class="cat-bed" data-item="Var-cat-bed"></div>
+					<div class="bed" id="bed"></div>
 					<div class="four-deck-tree" data-item="Var-four-deck-tree"></div>
 					<div class="three-deck-tree" data-item="Var-three-deck-tree"></div>
 					<div class="round-tree" data-item="Var-round-tree"></div>
@@ -113,6 +114,25 @@
 					<div class="ball-right" data-item="Var-ball"></div>
 					<div class="cubic-bricks" data-item="Var-cubic-bricks"></div>
 					<div class="cat-toy" data-item="Var-cat-toy"></div>
+
+					<!-- Cat Display Layer -->
+   	 				<!-- Bed zone (target drop area) -->
+    				<div class="bed-zone" id="Bed"></div> 	
+					<div class="excite-zone"   id="Excite_Zone"></div>
+					<div class="dance-zone"  id="Dance_Zone"></div>
+					<div class="eat-zone"    id="Eat_Zone"></div>
+					<div class="idle-zone"   id="Idle_Zone"></div>
+					<div class="laydown-zone" id="Laydown_Zone"></div>
+				
+    				<!-- Different cat states -->
+    				<div class="draggable-cat room-box-cat" id="Room-Box-Cat"></div> <!-- Box cat (initial) -->
+    				<div class="draggable-cat room-sleeping-cat" id="Room-Sleeping-Cat"></div> <!-- Sleeping cat -->
+					<div class="draggable-cat room-dancing-cat"    id="Room-Dancing-Cat"></div>
+					<div class="draggable-cat room-eating-cat"      id="Room-Eating-Cat"></div>
+					<div class="draggable-cat room-excited-cat"  id="Room-Excited-Cat"></div>
+					<div class="draggable-cat room-idle-cat"     id="Room-Idle-Cat"></div>
+					<div class="draggable-cat room-laydown-cat"  id="Room-Laydown-Cat"></div>
+
 				</div>
 
 				<!-- Furniture Selection Panel -->

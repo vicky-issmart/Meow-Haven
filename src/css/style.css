@@ -113,6 +113,7 @@ section {
 /* 1.2 Bottom Cats */
 :root {
 	--sprite-size: clamp(80px, 14vw, 150px);
+	--room-sprite: 90%;
 }
 
 .bottom-cats {
@@ -720,6 +721,91 @@ section {
 	margin-left: 5%;
 }
 
+/* cat dragging */
+
+
+.bed-zone { grid-column: 18 / 25; grid-row: 14 / 18;}
+.excite-zone { grid-column: 7 / 10; grid-row: 15 / 21;}
+.dance-zone { grid-column: 25 / 29; grid-row: 13 / 17;}
+.eat-zone { grid-column: 15 / 18; grid-row: 22 / 25; }
+.idle-zone { grid-column: 16 / 20; grid-row: 18 / 21;}
+.laydown-zone { grid-column: 8 / 12; grid-row: 9 / 12;}
+
+
+.draggable-cat {
+	cursor: grab;
+	position: relative;
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 3;
+	transform: translate(0,0); /* will be overridden by JS */
+    transition: transform 0s;   /* no snap–home animation, but could add */
+	display: none;
+}
+
+.draggable-cat.dragging {
+	cursor: grabbing;
+	opacity: 0.7;
+}
+
+.room-box-cat {
+	margin-left: 10%;
+	width: 90%;
+	grid-column: 14 / span 6;
+	grid-row: 16 / span 6;
+	background-image: url('../images/sprite/Box.gif');
+	display: block;
+}
+.room-sleeping-cat {
+	background-image: url('../images/sprite/Sleep.gif');
+	width: 81.7%;
+	grid-column: 18 / span 6;
+	grid-row: 13 / span 5;
+	margin-left: 8.3%;
+	display: none;
+}
+
+.room-dancing-cat {
+	grid-column: 25 / span 5;
+	grid-row: 13 / span 5;
+	background-image: url('../images/sprite/Dance.gif');
+	width: 80%;
+	margin-left: 5%;
+}
+
+.room-eating-cat {
+	grid-column: 15 / span 4;
+	grid-row: 22 / span 4;
+	background-image: url('../images/sprite/Eating.gif');
+	width: 80%;
+	margin-left: 2.5%;
+}
+
+.room-excited-cat {
+	grid-column: 7 / span 4;
+	grid-row: 16 / span 5;
+	background-image: url('../images/sprite/Excited.gif');
+	width: 87.5%;
+	margin-left: 12.5%;
+}
+
+.room-idle-cat {
+	grid-column: 16 / span 4;
+	grid-row: 18 / span 4;
+	background-image: url('../images/sprite/Idle.gif');
+	width: 100%;
+}
+
+.room-laydown-cat {
+	grid-column: 8 / span 5;
+	grid-row: 9 / span 3;
+	background-image: url('../images/sprite/LayDown.gif');
+	width: 74%;
+	margin-left: 15%;
+	margin-top: 13.3%;
+}
+
+
 /* 3.4 Item Selection Panel */
 .item-container {
 	display: grid;
@@ -938,7 +1024,14 @@ section {
 	width: 50%;
 }
 
-/* 3.8 Media Queries - Game Page */
+/* 3.8 Interactive cats */
+
+
+
+
+
+
+/* 3.9 Media Queries - Game Page */
 @media (max-width: 1024px) {
 
 	html,
