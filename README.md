@@ -1,8 +1,8 @@
-# Final Project (Replace with your project name)
+# Meow Haven
 
 ## Description
 
-Please add a brief description of your final project here.
+Meow Haven is a cozy, interactive game where players design a cat’s room, place furniture, and care for a virtual cat. Players can drag the cat around the room and trigger different animations by interacting with objects like food bowls, toys, and beds. The game features custom pixel art, responsive layout, and playful motion design to create a warm and engaging user experience.
 
 ## Project Documentation
 
