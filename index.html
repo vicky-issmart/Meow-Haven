@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Meow Haven is a cozy, interactive game where players decorate a cat's room, arrange furniture, and take care of a virtual cat. Players can move the cat around and trigger animations when it interacts with objects." />
+	<title>Meow Haven</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<main>
+		<!-- Home Page -->
+		<section class="home-page">
+			<div class="top-buttons">
+				<button class="button-help">
+					<img src="images/button/button-help.png" alt="Help button" />
+				</button>
+				<button class="button-sound">
+					<img src="images/button/button-sound.png" alt="Sound toggle button" />
+				</button>
+			</div>
+
+			<div class="container">
+				<h1 class="game-title">Meow Haven</h1>
+				<h2 class="game-subtitle">A Cozy Place for Furry Friends</h2>
+				<button class="button-start">
+					<img src="images/button/button-start.png" alt="Start game button" />
+				</button>
+			</div>
+
+			<div class="bottom-cats">
+				<div class="cat-sprite dance-cat"></div>
+				<div class="cat-sprite sleep-cat"></div>
+				<div class="cat-sprite box-cat"></div>
+				<div class="cat-sprite idle-cat"></div>
+				<div class="cat-sprite excited-cat"></div>
+				<div class="floor"></div>
+			</div>
+		</section>
+
+		<!-- Instruction Page -->
+		<section class="instruction-page hidden">
+			<div class="top-buttons">
+				<button class="button-sound">
+					<img src="images/button/button-sound.png" alt="Sound toggle button" />
+				</button>
+			</div>
+
+			<div class="instructions-card">
+				<h1 class="instruction-title">Welcome to Meow Haven</h1>
+
+				<div class="instruction">
+					<p>Build a cozy little room for your kitty!</p>
+					<p>Here's how to start:</p>
+				</div>
+
+				<div class="instruction">
+					<h2 class="instruction-subtitle">🎨 Pick &amp; Paint</h2>
+					<p>Click on furniture to change its color.</p>
+					<p>Make it match your vibe!</p>
+				</div>
+
+				<div class="instruction">
+					<h2 class="instruction-subtitle">🐱 Drag the Cat</h2>
+					<p>Move your cat around the room.</p>
+					<p>Drop it near toys or food to see it do cute things!</p>
+				</div>
+
+				<button class="button-play">
+					<img src="images/button/button-play.png" alt="Play button to start the game" />
+				</button>
+			</div>
+
+		</section>
+
+		<!-- Game Page -->
+		<section class="game-page hidden">
+			<!-- Top Buttons -->
+			<div class="top-buttons">
+				<button class="button-help">
+					<img src="images/button/button-help.png" alt="Help button" />
+				</button>
+				<button class="button-sound">
+					<img src="images/button/button-sound.png" alt="Sound toggle button" />
+				</button>
+			</div>
+
+			<div class="room-item-container">
+				<!-- Room Background -->
+				<div class="room-container" id="room">
+					<img src="images/room-background.png" alt="Cat room background" class="room-background" />
+
+					<!-- Furniture Display Layer -->
+					<div class="corner-tree" data-item="Var-corner-tree"></div>
+					<div class="cat-bed" data-item="Var-cat-bed"></div>
+					<div class="bed" id="bed"></div>
+					<div class="four-deck-tree" data-item="Var-four-deck-tree"></div>
+					<div class="three-deck-tree" data-item="Var-three-deck-tree"></div>
+					<div class="round-tree" data-item="Var-round-tree"></div>
+					<div class="curtains-window" data-item="Var-curtains-window"></div>
+					<div class="shuttered-window" data-item="Var-shuttered-window"></div>
+					<div class="small-window" data-item="Var-small-window"></div>
+					<div class="table" data-item="Var-table"></div>
+					<div class="large-plant" data-item="Var-large-plant"></div>
+					<div class="water-bowl" data-item="Var-water-bowl"></div>
+					<div class="food-bowl" data-item="Var-food-bowl"></div>
+					<div class="heart-picture" data-item="Var-heart-picture"></div>
+					<div class="cat-picture" data-item="Var-cat-picture"></div>
+					<div class="small-plant" data-item="Var-small-plant"></div>
+					<div class="ball-left" data-item="Var-ball"></div>
+					<div class="ball-right" data-item="Var-ball"></div>
+					<div class="cubic-bricks" data-item="Var-cubic-bricks"></div>
+					<div class="cat-toy" data-item="Var-cat-toy"></div>
+
+					<!-- Cat Display Layer -->
+					<!-- Bed zone (target drop area) -->
+					<div class="bed-zone" id="Bed"></div>
+					<div class="excite-zone" id="Excite_Zone"></div>
+					<div class="dance-zone" id="Dance_Zone"></div>
+					<div class="eat-zone" id="Eat_Zone"></div>
+					<div class="idle-zone" id="Idle_Zone"></div>
+					<div class="laydown-zone" id="Laydown_Zone"></div>
+
+					<!-- Different cat states -->
+					<div class="draggable-cat room-box-cat" id="Room-Box-Cat"></div>
+					<div class="draggable-cat room-sleeping-cat" id="Room-Sleeping-Cat"></div>
+					<div class="draggable-cat room-dancing-cat" id="Room-Dancing-Cat"></div>
+					<div class="draggable-cat room-eating-cat" id="Room-Eating-Cat"></div>
+					<div class="draggable-cat room-excited-cat" id="Room-Excited-Cat"></div>
+					<div class="draggable-cat room-idle-cat" id="Room-Idle-Cat"></div>
+					<div class="draggable-cat room-laydown-cat" id="Room-Laydown-Cat"></div>
+
+				</div>
+
+				<!-- Furniture Selection Panel -->
+				<div class="item-container">
+					<div class="page main-page active" id="mainPage1">
+						<div class="item-grid">
+							<div class="cell corner-tree-icon" data-item="Var-corner-tree">
+								<img src="images/item/corner_cat_tree_1.png" alt="Corner Cat Tree icon" />
+							</div>
+							<div class="cell cat-bed-icon" data-item="Var-cat-bed">
+								<img src="images/item/cat_bed_1.png" alt="Cat Bed icon" />
+							</div>
+							<div class="cell four-deck-tree-icon" data-item="Var-four-deck-tree">
+								<img src="images/item/four_deck_tree_1.png" alt="Four-deck Cat Tree icon" />
+							</div>
+							<div class="cell three-deck-tree-icon" data-item="Var-three-deck-tree">
+								<img src="images/item/three_deck_tree_1.png" alt="Three-deck Cat Tree icon" />
+							</div>
+							<div class="cell round-tree-icon" data-item="Var-round-tree">
+								<img src="images/item/round_tree_1.png" alt="Round Cat Tree icon" />
+							</div>
+							<div class="cell curtains-window-icon" data-item="Var-curtains-window">
+								<img src="images/item/curtains_window_1.png" alt="Curtains Window icon" />
+							</div>
+							<div class="cell shuttered-window-icon" data-item="Var-shuttered-window">
+								<img src="images/item/shuttered_window_1.png" alt="Shuttered Window icon" />
+							</div>
+							<div class="cell small-window-icon" data-item="Var-small-window">
+								<img src="images/item/small_window_1.png" alt="Small Window icon" />
+							</div>
+							<div class="cell table-icon" data-item="Var-table">
+								<img src="images/item/table_1.png" alt="Table icon" />
+							</div>
+							<div class="cell large-plant-icon" data-item="Var-large-plant">
+								<img src="images/item/large_plant_1.png" alt="Large Plant icon" />
+							</div>
+							<div class="cell water-bowl-icon" data-item="Var-water-bowl">
+								<img src="images/item/water_bowl_1.png" alt="Water Bowl icon" />
+							</div>
+							<div class="cell food-bowl-icon" data-item="Var-food-bowl">
+								<img src="images/item/food_bowl_1.png" alt="Food Bowl icon" />
+							</div>
+							<button class="button-next">
+								<img src="images/button/button-next.png" alt="Next page button" />
+							</button>
+						</div>
+					</div>
+
+					<div class="page main-page" id="mainPage2">
+						<div class="item-grid">
+							<div class="cell heart-picture-icon" data-item="Var-heart-picture">
+								<img src="images/item/heart_picture_1.png" alt="Heart Picture icon" />
+							</div>
+							<div class="cell cat-picture-icon" data-item="Var-cat-picture">
+								<img src="images/item/cat_picture_1.png" alt="Cat Picture icon" />
+							</div>
+							<div class="cell small-plant-icon" data-item="Var-small-plant">
+								<img src="images/item/small_plant_1.png" alt="Small Plant icon" />
+							</div>
+							<div class="cell ball-icon" data-item="Var-ball">
+								<img src="images/item/ball_1.png" alt="Ball toy icon" />
+							</div>
+							<div class="cell cubic-bricks-icon" data-item="Var-cubic-bricks">
+								<img src="images/item/cubic_bricks_1.png" alt="Cubic Bricks icon" />
+							</div>
+							<div class="cell cat-toy-icon" data-item="Var-cat-toy">
+								<img src="images/item/cat_toy_1.png" alt="Cat Toy icon" />
+							</div>
+							<button class="button-prev">
+								<img src="images/button/button-prev.png" alt="Previous page button" />
+							</button>
+						</div>
+					</div>
+
+					<!-- Customization Page -->
+					<div class="page" id="customizePage">
+						<div class="item-grid" id="colorOptions"></div>
+						<button class="button-back" alt="Back button"></button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
