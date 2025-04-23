@@ -1,11 +1,3 @@
-// This is where you should write all JavaScript
-// for your project. Remember a few things as you start!
-// - Use let or const for all variables
-// - Do not use jQuery - use JavaScript instead
-// - Do not use onclick - use addEventListener instead
-// - Run npm run test regularly to check autograding
-// - You'll need to link this file to your HTML :)
-
 // Pages
 const homePage = document.querySelector('.home-page');
 const instructionPage = document.querySelector('.instruction-page');
@@ -15,38 +7,47 @@ const gamePage = document.querySelector('.game-page');
 const startButton = document.querySelector('.button-start');
 const playButton = document.querySelector('.button-play');
 const helpButtons = document.querySelectorAll('.button-help');
-
-// Sound buttons
 const soundButtons = document.querySelectorAll('.button-sound');
+
+// Background Music
+const backgroundMusic = new Audio('audio/music.mp3');
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.5;
 let isMuted = false;
 
-// Home → Show instruction page
+// Try playing music after user interaction
+document.addEventListener('click', () => {
+	backgroundMusic.play().catch(() => {
+		console.log("Music will play after user interaction");
+	});
+}, { once: true });
+
+// Page: Home → Instruction
 startButton?.addEventListener('click', () => {
 	homePage?.classList.add('hidden');
 	instructionPage?.classList.remove('hidden');
 });
 
-// Play → Show game page
+// Page: Instruction → Game
 playButton?.addEventListener('click', () => {
 	instructionPage?.classList.add('hidden');
 	gamePage?.classList.remove('hidden');
 });
 
-// Help buttons (on home and game pages) → Show instruction page
+// Help buttons (home & game → instruction)
 helpButtons.forEach(button => {
 	button.addEventListener('click', () => {
-		// Hide all pages
 		homePage?.classList.add('hidden');
 		gamePage?.classList.add('hidden');
-		// Show instruction page
 		instructionPage?.classList.remove('hidden');
 	});
 });
 
-// Sound (top right) → Toggle sound icon
+// Sound buttons → Toggle mute + icon
 soundButtons.forEach(button => {
 	button.addEventListener('click', () => {
 		isMuted = !isMuted;
+		backgroundMusic.muted = isMuted;
 
 		soundButtons.forEach(btn => {
 			const icon = btn.querySelector('img');
@@ -288,29 +289,29 @@ function showCustomizePage(itemType) {
 // drag the cat
 const bowl = document.querySelector('.food-bowl');
 const zones = {
-	Bed:      'Room-Sleeping-Cat',
-	Excite_Zone:     'Room-Excited-Cat',
-	Dance_Zone:    'Room-Dancing-Cat',
-	Eat_Zone:      'Room-Eating-Cat',
-	Idle_Zone:     'Room-Idle-Cat',
-	Laydown_Zone:  'Room-Laydown-Cat'
-  };
-  
-  let currentId = 'Room-Box-Cat';
-  let dragEl     = null;
-  let startX, startY, dx = 0, dy = 0, dragging = false;
-  
-  const room = document.getElementById('room');
-  const bed  = document.getElementById('bed');
-  const game = document.getElementById('game');
-  
-  function resetTransform(el) {
+	Bed: 'Room-Sleeping-Cat',
+	Excite_Zone: 'Room-Excited-Cat',
+	Dance_Zone: 'Room-Dancing-Cat',
+	Eat_Zone: 'Room-Eating-Cat',
+	Idle_Zone: 'Room-Idle-Cat',
+	Laydown_Zone: 'Room-Laydown-Cat'
+};
+
+let currentId = 'Room-Box-Cat';
+let dragEl = null;
+let startX, startY, dx = 0, dy = 0, dragging = false;
+
+const room = document.getElementById('room');
+const bed = document.getElementById('bed');
+const game = document.getElementById('game');
+
+function resetTransform(el) {
 	el.style.transform = 'translate(0,0)';
 	dx = dy = 0;
-  }
-  
-  // Start drag on whichever cat is visible
-  room.addEventListener('pointerdown', e => {
+}
+
+// Start drag on whichever cat is visible
+room.addEventListener('pointerdown', e => {
 	if (!e.target.classList.contains('draggable-cat')) return;
 	dragEl = e.target;
 	dragging = true;
@@ -318,55 +319,67 @@ const zones = {
 	startY = e.clientY;
 	dragEl.setPointerCapture(e.pointerId);
 	dragEl.classList.add('dragging');
-  });
-  
-  // Move
-  room.addEventListener('pointermove', e => {
+});
+
+// Move
+room.addEventListener('pointermove', e => {
 	if (!dragging || !dragEl) return;
 	let deltaX = e.clientX - startX;
 	let deltaY = e.clientY - startY;
 	dragEl.style.transform = `translate(${dx + deltaX}px,${dy + deltaY}px)`;
-  });
-  
-  // End drag
+});
+
+// End drag
 room.addEventListener('pointerup', e => {
 	if (!dragging || !dragEl) return;
 	dragging = false;
 	dragEl.classList.remove('dragging');
-  
+
 	const x = e.clientX, y = e.clientY;
 	let dropped = false;
-  
+
 	// Check each zone
+	const foodBowl = document.querySelector('.food-bowl');
+
 	for (let zoneId in zones) {
-	  const z = document.getElementById(zoneId);
-	  const r = z.getBoundingClientRect();
-	  if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
-		dropped = true;
-		// hide old
-		document.getElementById(currentId).style.display = 'none';
-		// show new
-		currentId = zones[zoneId];
-		const newEl = document.getElementById(currentId);
-		newEl.style.display = 'block';
-		resetTransform(newEl);
-		break;
-	  }
+		const z = document.getElementById(zoneId);
+		const r = z.getBoundingClientRect();
+		if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
+			dropped = true;
+
+			// Hide old cat
+			document.getElementById(currentId).style.display = 'none';
+			// Show new cat
+			currentId = zones[zoneId];
+			const newEl = document.getElementById(currentId);
+			newEl.style.display = 'block';
+			resetTransform(newEl);
+			// Hide food bowl if dropped into Eat_Zone
+			if (zoneId === 'Eat_Zone') {
+				if (foodBowl) foodBowl.style.display = 'none';
+			} else {
+				if (foodBowl) foodBowl.style.display = 'block';
+			}
+
+			break;
+		}
 	}
-  
+
 	if (!dropped) {
-	  // bounce back
-	  resetTransform(dragEl);
+		// bounce back
+		resetTransform(dragEl);
 	} else {
-	  // after a successful drop, future drags come from the new element
-	  dragEl = document.getElementById(currentId);
+		// after a successful drop, future drags come from the new element
+		dragEl = document.getElementById(currentId);
 	}
-  });
-  
-  // Cancel
-  room.addEventListener('pointercancel', () => {
+});
+
+// Cancel
+room.addEventListener('pointercancel', () => {
 	if (!dragging || !dragEl) return;
 	dragging = false;
 	dragEl.classList.remove('dragging');
 	resetTransform(dragEl);
-  });
+});
+
+

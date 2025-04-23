@@ -1,4 +1,4 @@
-/* ========== 0. general setting ========== */
+/* ========== 0. General Settings ========== */
 * {
 	margin: 0;
 	padding: 0;
@@ -18,7 +18,7 @@ section {
 	text-align: center;
 }
 
-/* 0.1 Fonts */
+/* Fonts */
 @font-face {
 	font-family: 'GingerCat';
 	src: url('../fonts/GingerCat.woff') format('woff');
@@ -34,7 +34,7 @@ section {
 	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
 }
 
-/* 0.2 Button Interaction Effects (Hover & Active) */
+/* Button Effects */
 [class^="button-"] {
 	cursor: pointer;
 	background: none;
@@ -55,7 +55,7 @@ section {
 	transform: scale(0.95);
 }
 
-/* 0.3 Top Buttons */
+/* Top Buttons */
 .button-help,
 .button-sound {
 	position: absolute;
@@ -89,7 +89,7 @@ section {
 	justify-content: space-between;
 }
 
-/* 1.1 Title & Subtitle & Start Button */
+/* Title, Subtitle, Start Button */
 .game-title {
 	font-family: 'Ginger Cat', sans-serif;
 	font-size: clamp(36px, 10vw, 120px);
@@ -110,7 +110,7 @@ section {
 	height: auto;
 }
 
-/* 1.2 Bottom Cats */
+/* Bottom Cats */
 :root {
 	--sprite-size: clamp(80px, 14vw, 150px);
 	--room-sprite: 90%;
@@ -123,7 +123,6 @@ section {
 	align-items: flex-end;
 	padding-bottom: clamp(28px, 4vw, 56px);
 	width: 100%;
-	height: auto;
 	gap: clamp(8px, 2vw, 24px);
 	margin-top: 24px;
 }
@@ -146,6 +145,7 @@ section {
 	animation: dance-animation 1s steps(var(--frame-count)) infinite;
 }
 
+/* Cat Animations */
 .box-cat {
 	--frame-count: 4;
 	background-image: url('../images/sprite/Box.png');
@@ -187,7 +187,7 @@ section {
 	display: none;
 }
 
-/* 1.3 Animations */
+/* Keyframe Animations */
 @keyframes dance-animation {
 	from {
 		background-position: 0 0;
@@ -238,7 +238,7 @@ section {
 	}
 }
 
-/* 1.4 Media Queries - Home Page */
+/* Responsive 1 - Home Page */
 @media (min-width: 768px) {
 
 	.button-help,
@@ -321,6 +321,7 @@ section {
 	overflow: hidden;
 }
 
+/* Card Container */
 .instructions-card {
 	background-image: url('../images/instruction_pad_vertical.png');
 	background-size: contain;
@@ -343,7 +344,7 @@ section {
 	container-name: instructions;
 }
 
-/* 2.1 Container Queries for Typography */
+/* Container Queries: Typography */
 @container instructions (max-width: 310px) {
 	.instruction-title {
 		font-size: 1.25rem;
@@ -434,7 +435,7 @@ section {
 	}
 }
 
-/* 2.2 Typography & Layout*/
+/* Typography */
 .instruction-title {
 	font-family: 'Calli Cat', sans-serif;
 	text-align: center;
@@ -508,7 +509,7 @@ section {
 	height: auto;
 }
 
-/* 3.2 Room Container & Background */
+/* Room Layout */
 .room-container {
 	position: relative;
 	width: calc(100% - 40px);
@@ -531,7 +532,6 @@ section {
 	z-index: 1;
 }
 
-/* 3.3 Furniture Items */
 .corner-tree,
 .cat-bed,
 .four-deck-tree,
@@ -722,15 +722,35 @@ section {
 }
 
 /* cat dragging */
+.bed-zone {
+	grid-column: 16 / 25;
+	grid-row: 12 / 18;
+}
 
+.excite-zone {
+	grid-column: 2 / 13;
+	grid-row: 17 / 21;
+}
 
-.bed-zone { grid-column: 18 / 25; grid-row: 14 / 18;}
-.excite-zone { grid-column: 7 / 10; grid-row: 15 / 21;}
-.dance-zone { grid-column: 25 / 29; grid-row: 13 / 17;}
-.eat-zone { grid-column: 15 / 18; grid-row: 22 / 25; }
-.idle-zone { grid-column: 16 / 20; grid-row: 18 / 21;}
-.laydown-zone { grid-column: 8 / 12; grid-row: 9 / 12;}
+.dance-zone {
+	grid-column: 26 / 30;
+	grid-row: 8 / 23;
+}
 
+.eat-zone {
+	grid-column: 8 / 23;
+	grid-row: 22 / 26;
+}
+
+.idle-zone {
+	grid-column: 16 / 20;
+	grid-row: 14 / 25;
+}
+
+.laydown-zone {
+	grid-column: 4 / 15;
+	grid-row: 6 / 16;
+}
 
 .draggable-cat {
 	cursor: grab;
@@ -738,8 +758,8 @@ section {
 	background-size: contain;
 	background-repeat: no-repeat;
 	z-index: 3;
-	transform: translate(0,0); /* will be overridden by JS */
-    transition: transform 0s;   /* no snap–home animation, but could add */
+	transform: translate(0, 0);
+	transition: transform 0s;
 	display: none;
 }
 
@@ -750,15 +770,16 @@ section {
 
 .room-box-cat {
 	margin-left: 10%;
-	width: 90%;
+	width: 70%;
 	grid-column: 14 / span 6;
-	grid-row: 16 / span 6;
+	grid-row: 17 / span 6;
 	background-image: url('../images/sprite/Box.gif');
 	display: block;
 }
+
 .room-sleeping-cat {
 	background-image: url('../images/sprite/Sleep.gif');
-	width: 81.7%;
+	width: 75%;
 	grid-column: 18 / span 6;
 	grid-row: 13 / span 5;
 	margin-left: 8.3%;
@@ -769,15 +790,15 @@ section {
 	grid-column: 25 / span 5;
 	grid-row: 13 / span 5;
 	background-image: url('../images/sprite/Dance.gif');
-	width: 80%;
+	width: 82%;
 	margin-left: 5%;
 }
 
 .room-eating-cat {
-	grid-column: 15 / span 4;
+	grid-column: 14 / span 4;
 	grid-row: 22 / span 4;
 	background-image: url('../images/sprite/Eating.gif');
-	width: 80%;
+	width: 100%;
 	margin-left: 2.5%;
 }
 
@@ -800,13 +821,13 @@ section {
 	grid-column: 8 / span 5;
 	grid-row: 9 / span 3;
 	background-image: url('../images/sprite/LayDown.gif');
-	width: 74%;
+	width: 75%;
 	margin-left: 15%;
 	margin-top: 13.3%;
 }
 
 
-/* 3.4 Item Selection Panel */
+/* Item Panel */
 .item-container {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -822,7 +843,7 @@ section {
 	overflow: hidden;
 }
 
-/* 3.5 Page Visibility */
+/* Page Toggle */
 .page {
 	display: none;
 }
@@ -833,7 +854,7 @@ section {
 	grid-template-rows: 1fr;
 }
 
-/* 3.6 Item Grid */
+/* Grid Container */
 .item-grid {
 	width: 100%;
 	grid-column: 1 / span 1;
@@ -848,7 +869,7 @@ section {
 	overflow: hidden;
 }
 
-/* 3.7 Icon Cells */
+/* Icon Cells */
 .cell {
 	display: flex;
 	justify-content: center;
@@ -1024,14 +1045,7 @@ section {
 	width: 50%;
 }
 
-/* 3.8 Interactive cats */
-
-
-
-
-
-
-/* 3.9 Media Queries - Game Page */
+/* Responsive - Game Page */
 @media (max-width: 1024px) {
 
 	html,
