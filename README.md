@@ -7,8 +7,9 @@ Meow Haven is a cozy, interactive game where players design a cat’s room, plac
 ## Project Documentation
 
 - [CM523 Final Project Guidelines &amp; Schedule](https://docs.google.com/document/d/1gvG9_1XYfp5-BVUgCDL9JDaZ3Acm6hHP7lDF3MqXPzY/edit#heading=h.61wsleacz62i)
-- **Final code demo:** [Update this to show your Github Pages URL](https://professorkolodziej.github.io/cm523-final-project/). The URL will be `https://professorkolodziej.github.io/YOUR-REPOSITORY-NAME/`.
-- Add any links to wireframes, mockups, your presentation, etc. here in a list so it is easy for you to find later.
+- **Final code demo:** https://github.com/ProfessorKolodziej/final-project-fall-2024-meow-haven/tree/Branch_1
+- **Prototype:**: https://www.figma.com/design/AUF0Dwwmel22sNrVBPMNOX/Prototype---Meow-Haven?node-id=58-22&t=MHIcP2Pw3CBH3nPO-1
+- **Presentation:**: 
 
 ## How to Use This Repository
 
