@@ -20,21 +20,36 @@ section {
 
 /* Fonts */
 @font-face {
-	font-family: 'GingerCat';
+	font-family: GingerCat;
 	src: url('../fonts/GingerCat.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'CalliCat';
+	font-family: CalliCat;
 	src: url('../fonts/CalliCat.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'DKBorrowdale';
+	font-family: DKBorrowdale;
 	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
 }
 
 /* Button Effects */
+.button-help img,
+.button-sound img {
+	width: 30px;
+	height: auto;
+}
+
+.button-start {
+	margin-top: clamp(24px, 5vw, 80px);
+}
+
+.button-start img {
+	width: clamp(120px, 25vw, 260px);
+	height: auto;
+}
+
 [class^="button-"] {
 	cursor: pointer;
 	background: none;
@@ -55,7 +70,6 @@ section {
 	transform: scale(0.95);
 }
 
-/* Top Buttons */
 .button-help,
 .button-sound {
 	position: absolute;
@@ -68,12 +82,6 @@ section {
 
 .button-sound {
 	right: 20px;
-}
-
-.button-help img,
-.button-sound img {
-	width: 30px;
-	height: auto;
 }
 
 /* ========== 1. Home Page ========== */
@@ -99,15 +107,6 @@ section {
 	font-family: 'Calli Cat', sans-serif;
 	font-size: clamp(14px, 4vw, 40px);
 	margin-top: clamp(5px, 1vw, 12px);
-}
-
-.button-start {
-	margin-top: clamp(24px, 5vw, 80px);
-}
-
-.button-start img {
-	width: clamp(120px, 25vw, 260px);
-	height: auto;
 }
 
 /* Bottom Cats */
@@ -141,6 +140,7 @@ section {
 
 .dance-cat {
 	--frame-count: 4;
+
 	background-image: url('../images/sprite/Dance.png');
 	animation: dance-animation 1s steps(var(--frame-count)) infinite;
 }
@@ -148,24 +148,28 @@ section {
 /* Cat Animations */
 .box-cat {
 	--frame-count: 4;
+
 	background-image: url('../images/sprite/Box.png');
 	animation: box-animation 1s steps(var(--frame-count)) infinite;
 }
 
 .excited-cat {
 	--frame-count: 12;
+
 	background-image: url('../images/sprite/Excited.png');
 	animation: excited-animation 1.4s steps(var(--frame-count)) infinite;
 }
 
 .sleep-cat {
 	--frame-count: 4;
+
 	background-image: url('../images/sprite/Sleep.png');
 	animation: sleep-animation 1s steps(var(--frame-count)) infinite;
 }
 
 .idle-cat {
 	--frame-count: 10;
+
 	background-image: url('../images/sprite/Idle.png');
 	animation: idle-animation 1.2s steps(var(--frame-count)) infinite;
 }
@@ -239,8 +243,7 @@ section {
 }
 
 /* Responsive 1 - Home Page */
-@media (min-width: 768px) {
-
+@media (width >=768px) {
 	.button-help,
 	.button-sound {
 		top: 25px;
@@ -272,8 +275,7 @@ section {
 	}
 }
 
-@media (min-width: 1200px) {
-
+@media (width >=1200px) {
 	.button-help,
 	.button-sound {
 		top: 30px;
@@ -327,19 +329,16 @@ section {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
-
 	width: 90vw;
 	max-width: 540px;
 	min-width: 300px;
 	aspect-ratio: 1 / 1.34;
-
 	padding-block: 8vh 6vh;
 	padding-inline: 24px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-
 	container-type: inline-size;
 	container-name: instructions;
 }
@@ -501,12 +500,6 @@ section {
 	grid-column: 9 / span 1;
 	grid-row: 4 / span 1;
 	justify-self: end;
-}
-
-.button-prev img,
-.button-next img {
-	width: 25px;
-	height: auto;
 }
 
 /* Room Layout */
@@ -724,7 +717,7 @@ section {
 /* cat dragging */
 .bed-zone {
 	grid-column: 16 / 25;
-	grid-row: 12 / 18;
+	grid-row: 6 / 18;
 }
 
 .excite-zone {
@@ -734,11 +727,11 @@ section {
 
 .dance-zone {
 	grid-column: 26 / 30;
-	grid-row: 8 / 23;
+	grid-row: 6 / 24;
 }
 
 .eat-zone {
-	grid-column: 8 / 23;
+	grid-column: 8 / 25;
 	grid-row: 22 / 26;
 }
 
@@ -748,7 +741,7 @@ section {
 }
 
 .laydown-zone {
-	grid-column: 4 / 15;
+	grid-column: 2 / 15;
 	grid-row: 6 / 16;
 }
 
@@ -1046,8 +1039,7 @@ section {
 }
 
 /* Responsive - Game Page */
-@media (max-width: 1024px) {
-
+@media (width <=1024px) {
 	html,
 	body {
 		height: 100vh;
@@ -1083,7 +1075,7 @@ section {
 	}
 }
 
-@media (min-width: 1025px) {
+@media (width >=1025px) {
 	.game-page {
 		display: flex;
 		flex-direction: column;

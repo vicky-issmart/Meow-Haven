@@ -22,21 +22,29 @@ document.addEventListener('click', () => {
 	});
 }, { once: true });
 
+function addClickEvents(element, handler) {
+	element?.addEventListener('click', handler);
+	element?.addEventListener('touchstart', (e) => {
+		e.preventDefault();
+		handler();
+	}, { passive: false });
+}
+
 // Page: Home → Instruction
-startButton?.addEventListener('click', () => {
+addClickEvents(startButton, () => {
 	homePage?.classList.add('hidden');
 	instructionPage?.classList.remove('hidden');
 });
 
 // Page: Instruction → Game
-playButton?.addEventListener('click', () => {
+addClickEvents(playButton, () => {
 	instructionPage?.classList.add('hidden');
 	gamePage?.classList.remove('hidden');
 });
 
 // Help buttons (home & game → instruction)
 helpButtons.forEach(button => {
-	button.addEventListener('click', () => {
+	addClickEvents(button, () => {
 		homePage?.classList.add('hidden');
 		gamePage?.classList.add('hidden');
 		instructionPage?.classList.remove('hidden');
@@ -45,7 +53,7 @@ helpButtons.forEach(button => {
 
 // Sound buttons → Toggle mute + icon
 soundButtons.forEach(button => {
-	button.addEventListener('click', () => {
+	addClickEvents(button, () => {
 		isMuted = !isMuted;
 		backgroundMusic.muted = isMuted;
 
