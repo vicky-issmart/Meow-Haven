@@ -390,4 +390,9 @@ room.addEventListener('pointercancel', () => {
 	resetTransform(dragEl);
 });
 
+// Touch events for mobile devices
+room.addEventListener('touchstart', startDrag);
+room.addEventListener('touchmove', moveDrag);
+room.addEventListener('touchend', endDrag);
+room.addEventListener('touchcancel', cancelDrag);
 
