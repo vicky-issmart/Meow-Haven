@@ -21,17 +21,17 @@ section {
 /* Fonts */
 @font-face {
 	font-family: GingerCat;
-	src: url('../fonts/GingerCat.ttf') format('ttf');
+	src: url('../fonts/GingerCat.woff') format('woff');
 }
 
 @font-face {
 	font-family: CalliCat;
-	src: url('../fonts/CalliCat.ttf') format('ttf');
+	src: url('../fonts/CalliCat.woff') format('woff');
 }
 
 @font-face {
 	font-family: DKBorrowdale;
-	src: url('../fonts/DKBorrowdale.otf') format('otf');
+	src: url('../fonts/DKBorrowdale.woff2') format('woff2');
 }
 
 /* Button Effects */
