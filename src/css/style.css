@@ -495,13 +495,23 @@ section {
 .button-prev {
 	grid-column: 1 / span 1;
 	grid-row: 4 / span 1;
-	justify-self: start;
+	width: 70%;
+	margin-right: 30%;
+	background-image: url('../images/button/button-prev.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .button-next {
 	grid-column: 9 / span 1;
 	grid-row: 4 / span 1;
-	justify-self: end;
+	margin-left: 30%;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('../images/button/button-next.png');
+	width: 70%;
 }
 
 /* Room Layout */
@@ -1099,12 +1109,16 @@ section {
 
 	.button-prev {
 		grid-column: 1 / span 1;
-		grid-row: 5 / span 1;
+		grid-row: 4 / span 3;
+		margin-right: 60%;
+		width: 40%;
 	}
 
 	.button-next {
 		grid-column: 7 / span 1;
-		grid-row: 5 / span 1;
+		grid-row: 4 / span 3;
+		margin-left: 60%;
+		width: 40%;
 	}
 
 	.button-prev img,
