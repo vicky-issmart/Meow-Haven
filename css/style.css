@@ -31,7 +31,7 @@ section {
 
 @font-face {
 	font-family: DKBorrowdale;
-	src: url('../fonts/DK\ Borrowdale.woff2') format('woff2');
+	src: url('../fonts/DKBorrowdale.woff2') format('woff2');
 }
 
 /* Button Effects */
@@ -244,6 +244,7 @@ section {
 
 /* Responsive 1 - Home Page */
 @media (width >=768px) {
+
 	.button-help,
 	.button-sound {
 		top: 25px;
@@ -276,6 +277,7 @@ section {
 }
 
 @media (width >=1200px) {
+
 	.button-help,
 	.button-sound {
 		top: 30px;
@@ -1040,6 +1042,7 @@ section {
 
 /* Responsive - Game Page */
 @media (width <=1024px) {
+
 	html,
 	body {
 		height: 100vh;
