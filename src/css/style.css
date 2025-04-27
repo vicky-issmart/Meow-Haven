@@ -488,7 +488,9 @@ section {
 	transition: transform 0.2s ease;
 }
 
-.button-back:hover {
+.button-back:hover,
+.button-prev:hover,
+.button-next:hover {
 	transform: scale(1.05);
 }
 
@@ -501,6 +503,7 @@ section {
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+	transition: transform 0.2s ease;
 }
 
 .button-next {
@@ -512,6 +515,7 @@ section {
 	background-position: center;
 	background-image: url('../images/button/button-next.png');
 	width: 70%;
+	transition: transform 0.2s ease;
 }
 
 /* Room Layout */
@@ -1119,12 +1123,6 @@ section {
 		grid-row: 4 / span 3;
 		margin-left: 60%;
 		width: 40%;
-	}
-
-	.button-prev img,
-	.button-next img {
-		width: 35px;
-		height: auto;
 	}
 
 	.button-back {
