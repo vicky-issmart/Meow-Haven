@@ -21,12 +21,12 @@ section {
 /* Fonts */
 @font-face {
 	font-family: GingerCat;
-	src: url('../fonts/GingerCat.woff') format('woff');
+	src: url('../fonts/GingerCat.woff2') format('woff2');
 }
 
 @font-face {
 	font-family: CalliCat;
-	src: url('../fonts/CalliCat.woff') format('woff');
+	src: url('../fonts/CalliCat.woff2') format('woff2');
 }
 
 @font-face {
