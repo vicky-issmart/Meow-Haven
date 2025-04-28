@@ -444,12 +444,12 @@ section {
 }
 
 .instruction-subtitle {
-	font-family: 'DK Borrowdale', sans-serif;
+	font-family: 'DKBorrowdale', sans-serif;
 	margin-bottom: 0.3em;
 }
 
 .instruction p {
-	font-family: 'DK Borrowdale', sans-serif;
+	font-family: 'DKBorrowdale', sans-serif;
 	line-height: 1.4;
 	text-align: center;
 }
@@ -488,20 +488,34 @@ section {
 	transition: transform 0.2s ease;
 }
 
-.button-back:hover {
+.button-back:hover,
+.button-prev:hover,
+.button-next:hover {
 	transform: scale(1.05);
 }
 
 .button-prev {
 	grid-column: 1 / span 1;
 	grid-row: 4 / span 1;
-	justify-self: start;
+	width: 70%;
+	margin-right: 30%;
+	background-image: url('../images/button/button-prev.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: transform 0.2s ease;
 }
 
 .button-next {
 	grid-column: 9 / span 1;
 	grid-row: 4 / span 1;
-	justify-self: end;
+	margin-left: 30%;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('../images/button/button-next.png');
+	width: 70%;
+	transition: transform 0.2s ease;
 }
 
 /* Room Layout */
@@ -1099,18 +1113,16 @@ section {
 
 	.button-prev {
 		grid-column: 1 / span 1;
-		grid-row: 5 / span 1;
+		grid-row: 4 / span 3;
+		margin-right: 60%;
+		width: 40%;
 	}
 
 	.button-next {
 		grid-column: 7 / span 1;
-		grid-row: 5 / span 1;
-	}
-
-	.button-prev img,
-	.button-next img {
-		width: 35px;
-		height: auto;
+		grid-row: 4 / span 3;
+		margin-left: 60%;
+		width: 40%;
 	}
 
 	.button-back {

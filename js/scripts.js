@@ -254,6 +254,27 @@ const itemColors = {
 	],
 
 }
+// media query: accommodate the position of different colors of balls
+const mediaQuery = window.matchMedia('(width >= 1025px)');
+function updateVarBallPosition() {
+    const varBallItems = itemColors['Var-ball']; // Access the Var-ball items
+    
+    if (mediaQuery.matches) {
+        // Switch the col and row for larger screens (min-width: 1024px)
+        varBallItems.forEach(item => {
+            // Switch col and row values
+            let temp = item.col;
+            item.col = item.row;
+            item.row = temp;
+        });
+    }
+}
+
+updateVarBallPosition();
+
+// Add event listener to detect screen size changes
+mediaQuery.addEventListener('change', updateVarBallPosition);
+
 
 // Show color customization page
 document.querySelectorAll('.cell').forEach(cell => {
