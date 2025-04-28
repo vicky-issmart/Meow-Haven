@@ -444,12 +444,12 @@ section {
 }
 
 .instruction-subtitle {
-	font-family: 'DKBorrowdale', sans-serif;
+	font-family: 'DKBorrowdale', sans-serif !important;
 	margin-bottom: 0.3em;
 }
 
 .instruction p {
-	font-family: 'DKBorrowdale', sans-serif;
+	font-family: 'DKBorrowdale', sans-serif !important;
 	line-height: 1.4;
 	text-align: center;
 }
