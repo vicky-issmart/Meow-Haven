@@ -10,7 +10,7 @@ const helpButtons = document.querySelectorAll('.button-help');
 const soundButtons = document.querySelectorAll('.button-sound');
 
 // Background Music
-const backgroundMusic = new Audio('audio/music.mp3');
+const backgroundMusic = new Audio('audio/kitten_caper.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.5;
 let isMuted = false;
