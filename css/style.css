@@ -99,7 +99,7 @@ section {
 
 /* Title, Subtitle, Start Button */
 .game-title {
-	font-family: 'GingerCat', sans-serif;
+	font-family: 'GingerCat', sans-serif !important;
 	font-size: clamp(36px, 10vw, 120px);
 }
 
