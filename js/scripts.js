@@ -8,6 +8,14 @@ const startButton = document.querySelector('.button-start');
 const playButton = document.querySelector('.button-play');
 const helpButtons = document.querySelectorAll('.button-help');
 const soundButtons = document.querySelectorAll('.button-sound');
+const infoButton = document.querySelector('.button-info');
+
+//credits
+const creditsWindow = document.querySelector('.credits');
+// Add an event listener to the info button to toggle visibility of the credits window
+infoButton.addEventListener('click', function() {
+	creditsWindow.classList.toggle('hidden');
+  });
 
 // Background Music
 const backgroundMusic = new Audio('audio/kitten_caper.mp3');
@@ -417,3 +425,16 @@ room.addEventListener('touchmove', moveDrag);
 room.addEventListener('touchend', endDrag);
 room.addEventListener('touchcancel', cancelDrag);
 
+
+//credits
+document.addEventListener('DOMContentLoaded', function () {
+	// Get references to the info button and credits window
+	const infoButton = document.getElementById('infoButton');
+	const creditsWindow = document.getElementById('creditsWindow');
+  
+	// Add an event listener to the info button to toggle visibility of the credits window
+	infoButton.addEventListener('click', () => {
+	  // Toggle the 'visible' class on the credits window to show/hide it
+	  creditsWindow.classList.toggle('visible');
+	});
+  });
