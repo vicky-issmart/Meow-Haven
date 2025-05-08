@@ -25,7 +25,7 @@ If you'd like to contribute to the project, feel free to fork the repository and
 
 ## Credits
 
-This is the final project code for the course **Design and Interactive Experiences** instructed by Professor Ashley Kolodziej at Boston University. It was designed and programmed by Tianqi Feng and [Min Hu](https://github.com/MinHu0401). The pixel-art assets are adopted from [ToffeeCraft](https://itch.io/profile/toffeecraft). The background music is *Kitten Caper* by HarumachiMusic.
+This is the final project code for the course **Design and Interactive Experiences** instructed by Professor Ashley Kolodziej at Boston University. It was designed and programmed by Tianqi Feng and [Min Hu](https://github.com/MinHu0401). The pixel-art assets are adapted from [ToffeeCraft](https://itch.io/profile/toffeecraft). The background music is *Kitten Caper* by HarumachiMusic.
 
 ## Browser Support
 
