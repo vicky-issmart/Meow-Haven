@@ -6,7 +6,7 @@ Meow Haven is a cozy, interactive game where players design a cat’s room, plac
 
 ## Project Documentation
 
-- **Final code demo:** [https://vicky-issmart.github.io/Meow-Haven/)](https://vicky-issmart.github.io/Meow-Haven/).
+- **Final code demo:** [https://vicky-issmart.github.io/Meow-Haven/](https://vicky-issmart.github.io/Meow-Haven/).
 - **Prototype:**: https://www.figma.com/design/AUF0Dwwmel22sNrVBPMNOX/Prototype---Meow-Haven?node-id=58-22&t=MHIcP2Pw3CBH3nPO-1
 
 ## How to Use This Repository
