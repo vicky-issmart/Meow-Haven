@@ -2,14 +2,12 @@
 
 ## Description
 
-Meow Haven is a cozy, interactive game where players design a cat’s room, place furniture, and care for a virtual cat. Players can drag the cat around the room and trigger different animations by interacting with objects like food bowls, toys, and beds. The game features custom pixel art, responsive layout, and playful motion design to create a warm and engaging user experience.
+Meow Haven is a cozy, interactive game where players design a cat’s room, place furniture, and care for a virtual cat. Players can drag the cat around the room and trigger different animations by interacting with objects like food bowls, toys, and beds. The game features custom pixel art, responsive layout, and playful motion design to create a warm and engaging user experience. 
 
 ## Project Documentation
 
-- [CM523 Final Project Guidelines &amp; Schedule](https://docs.google.com/document/d/1gvG9_1XYfp5-BVUgCDL9JDaZ3Acm6hHP7lDF3MqXPzY/edit#heading=h.61wsleacz62i)
-- **Final code demo:** [https://github.com/ProfessorKolodziej/final-project-fall-2024-meow-haven](https://professorkolodziej.github.io/final-project-fall-2024-meow-haven/)
+- **Final code demo:** [https://vicky-issmart.github.io/Meow-Haven/)](https://vicky-issmart.github.io/Meow-Haven/)
 - **Prototype:**: https://www.figma.com/design/AUF0Dwwmel22sNrVBPMNOX/Prototype---Meow-Haven?node-id=58-22&t=MHIcP2Pw3CBH3nPO-1
-- **Presentation:**: 
 
 ## How to Use This Repository
 
