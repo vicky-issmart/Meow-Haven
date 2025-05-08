@@ -16,6 +16,7 @@ This game has been optimized for all devices and works seamlessly across various
 To get started with Meow Haven, clone this repository and then follow these commands to get up and running!
 
 | **`npm install`** | Installs dependencies |
+
 | **`npm run start`** | Runs the project locally |
 
 ## Contributing
